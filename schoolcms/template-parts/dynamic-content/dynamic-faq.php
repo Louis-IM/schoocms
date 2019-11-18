@@ -6,7 +6,9 @@
 				<?php the_sub_field('question') ?>	
 			</h3>
 			<div class="faq-answer">
-				<?php the_sub_field('answer') ?>	
+				<div class="row"><div class="col">
+					<?php the_sub_field('answer') ?>	
+				</div></div>
 			</div>
 		</div>
 	<?php endwhile; ?>
