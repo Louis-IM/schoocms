@@ -1,7 +1,6 @@
 <?php
 /**
  * Schoocms Functions and Definitions
- 
  */
 function schoocms_setup() {
 
