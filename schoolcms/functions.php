@@ -14,7 +14,7 @@ function schoocms_setup() {
   	add_image_size( 'portrait', 768, 1024,true ); 
 	/*Thumbnail, Medium and Large sizes are edited within the media settings*/	
 	
-	/*Edit as design sees fit*/
+	/*Edit and add as design sees fit*/
 	add_image_size( 'page-banner'	, 1560, 560, true );
 	add_image_size( 'home-banner'	, 1560, 875, true );
 	
