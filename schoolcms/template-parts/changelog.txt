@@ -1,0 +1,59 @@
+Changelog for 3.0
+<***General Changes***>
+* Bugfixes and general tidying up of missing/unused code.
+* $schoocms_settings_page removed - variable no longer used replaced with a function that cascades down ancestors searching for a certain field
+* query_ancestors_acf() added - first variable is the acf field that it will search for. Second variable is optional but will default to the current post ID.
+* Banners will now only show banner slides. Featured images placed within page content.
+* Replaced standard image queries with wordpress attachment image queries, which automatically pull in additional data automatically
+* Easy Fancybox removed from plugin list - Uses fancybox v3.1.28
+* Repositioned if post and the_post query as this would interfere with some plugins that modify a content output.
+* Broke content down into relevant sections to avoid blank content in some cases.
+* Due to the frequent instances of requiring two different menus for various reasons mobile menu will remain its own seperate menu rather than trying to adapt the header menu into working in two different ways - The template paths will remain the same
+* Added google maps field within Theme Options - Allows multi-marker and holds api field so the template does not need to be updated with the api manually.
+* updated fontawesome to 5.7 from 4.7
+* content and sidebar sections broken off into their own sections
+** Due to above the "Single" post section custom post types will not need a page template and would only need a "Content" template instead.
+* Removed Staff groups
+
+<***Dynamic Content***>
+* Contact form Content type removed - Since we are in a transitionary period when it comes to contact forms this was best to do for now. Since most contact forms are inserted through shortcoded whether this will return is tbd.
+* Added single text line field - currently used to be the title to the quote section but can be expanded further
+* renamed the variable of the type of dynamic content to $dynamic_content to prevent conflicts
+* Broke Dynamic content blocks into individual php templates
+* Set up home dynamic content options and default fallbacks.
+* Put all dynamic content styles within their own sections within the stylesheet
+* Assigned container section and classes to set uniform margins / further modifications
+* Templates use the "Content type" as part of its slug, using the "get_template_part" function
+* refined poi and callout sections into more distinct options
+** POIs are single blocks of one/two lines of text with a link and optional image - The entire block is a link
+** Callouts use more text with an optional image as background - The link is a "Read more" button or something similar - a wysiwyg editor allows for further links within the body text
+* Updated FAQ template and javascript to work more like an accordion than standalone expanding boxes.
+
+
+Changelog 01/08/19
+<***General Changes***>
+* Bootstrap version updated to version 4.3.1 and removed XL items manually set in stylesheet - This changes bootstrap widths for screens from sm= 768 to 600 and md to 768 etc.
+* Moved "bodyContent" to within the column and inside the "Content" template part to prevent future conflicts
+* Added in two main classes where button links can be standardised ".blockButton > a" for the inline link and "a.readmore" for more standard links.
+* Staff Custom Post type modified - Archive has been removed and front end template updated. The post type is no longer hierarchichal too.
+* Banner heights/dimensions are set in the banner container rather than within the banner - This it to prevent the 'flicker' as cycle2 loads and intialises.
+* Added a triggable class for home page that is removed/added along with the fixed header which should allow for home page banners to look different enough to inner headers and fixed headers.
+* Removed junk/unused scripts and functions
+* Split up script and style loading into "Required" "Fonts" and "Custom"
+* Added Standard Go live scripts: "Remove H1 from editor" and "Enable editors to view wp forms".
+
+<***Dynamic Content***>
+* Added in a sub-folder so dynamic items used in the sidebar can use a very different template without editing the main content template - Similar to the Home dynamic fields
+** Dynamic content can still have minor changes set within the template - which is what the $is_sidebar variable used for (See: POIs)
+* Featured Image removed from Quote post types - This was rarely used so I decided to remove it from the basic build
+* Quote text is wrapped in blockquotes - Makes it easier to keep blockquote/quote styles consistent
+* Staff Blocks tidied up and re-built.
+** Both Featured and Standard staff use the "Send" placeholder for emails
+** Standard Staff will show excerpt and a "Read More" if there is content (For featured staff the link is within the header).
+* All dynamic blocks should now use the "Setup postdata" method.
+** Reasoning: The manual querying often caused conflict in certain instances - Causing (Mostly POIs) to display the text of a unrelated event or the post itself.
+* POI Excerpt field replaced with acf field with a 140 character limit
+* Callout - Added in triggers if there is content which should allow modification in case of possiblities of content or further text
+* Callout WYSIWYG field removed - Replaced with a No limit text field
+** While it was useful it was more trouble where clients can easily add in links and images into a part of the template that shouldn't have it
+
