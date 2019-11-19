@@ -209,7 +209,7 @@ function my_login_head() {
 }
  
 // Change title for login screen
-add_filter('login_headertitle', create_function(false,"return 'SchooCMS by Innermedia';"));
+add_filter('login_headertext', create_function(false,"return 'SchooCMS by Innermedia';"));
  
 // change url for login screen
 add_filter('login_headerurl', create_function(false,"return home_url();"));
