@@ -72,11 +72,15 @@ $(window).scroll(fixHeader);
 
 $('a[data-fancybox]').fancybox();
 
-
+//Trigger to add in class firsthand
+ $('.hideme').each( function(i){
+	$(this).addClass('sectionfadein');
+ });
+/* Every time the window is scrolled ... */
 $(window).scroll( function(){
 
 	/* Check the location of each desired element */
-	$('.hideme').each( function(i){
+	$('sectionfadein').each( function(i){
 		var bottom_of_object = $(this).offset().top + $(this).outerHeight();
 		var bottom_of_window = $(window).scrollTop() + $(window).height();
 		var top_of_object = $(this).offset().top;
