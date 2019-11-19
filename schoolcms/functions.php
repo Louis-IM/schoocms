@@ -14,8 +14,8 @@ function schoocms_setup() {
 	/*Thumbnail, Medium and Large sizes are edited within the media settings*/	
 	
 	/*Edit and add as design sees fit*/
-	add_image_size( 'page-banner', 1560, 560, true );
-	add_image_size( 'home-banner', 1560, 875, true );
+	add_image_size( 'page-banner'	, 1560, 560, true );
+	add_image_size( 'home-banner'	, 1560, 875, true );
 	
 
 	// This theme uses wp_nav_menu() in two locations.
