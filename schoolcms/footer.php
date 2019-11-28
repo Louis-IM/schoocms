@@ -37,7 +37,7 @@
 					<p><a href="<?php bloginfo('url');?>/sitemap.xml">Sitemap</a> | <a href="<?php bloginfo('url');?>/privacy-policy">Privacy Policy</a> | <a href="<?php bloginfo('url');?>/cookie-policy">Cookies</a> </p>
 				</div>
 				<div class="col-sm-4 sm-text-right">
-					<p><a href="https://www.innermedia.co.uk/">Designed by Innermedia <img src="<?php bloginfo('template_url');?>/images/im-logo.png" alt="innermedia" /></a></p>
+					<p><a href="https://www.innermedia.co.uk/" rel="nofollow">Designed by Innermedia <img src="<?php bloginfo('template_url');?>/images/im-logo.png" alt="innermedia" /></a></p>
 				</div>
 			</div>
 		</div>
