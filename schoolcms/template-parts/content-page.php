@@ -10,7 +10,7 @@
 	<!-- main content -->
 	<?php $raw_content = get_the_content(); 
 	?>
-		<div class="row">
+		<div class="row body-text">
 			<div class="<?php echo (strpos($raw_content,'[column_divider]')) ? 'col-lg-6' : 'col-lg-12' ; ?>">
 				<?php the_content(); ?>
 				<?php wp_link_pages(); ?>
