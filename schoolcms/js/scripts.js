@@ -80,7 +80,7 @@ $('a[data-fancybox]').fancybox();
 $(window).scroll( function(){
 
 	/* Check the location of each desired element */
-	$('sectionfadein').each( function(i){
+	$('.sectionfadein').each( function(i){
 		var bottom_of_object = $(this).offset().top + $(this).outerHeight();
 		var bottom_of_window = $(window).scrollTop() + $(window).height();
 		var top_of_object = $(this).offset().top;
