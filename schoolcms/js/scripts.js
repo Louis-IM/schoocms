@@ -96,6 +96,6 @@ $(window).scroll( function(){
 
 });
 
-
+$('.wpforms-field-address-country').val('GB');
 
 });
