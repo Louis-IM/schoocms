@@ -1,9 +1,9 @@
 <?php if(get_sub_field('quotes')):?>
 <?php $quotes = get_sub_field('quotes');
-$quotesTitle = get_sub_field('text_line'); ?>
+$section_title = get_sub_field('section_title'); ?>
 		<div class="quotes-holder">
 			<div class="quoteContainer">
-			<?php if($quotesTitle):?><h3 class="quotesTitle"><?php echo $quotesTitle;?></h3><?php endif;?>
+			<?php if($section_title):?><h3 class="quotesTitle"><?php echo $section_title;?></h3><?php endif;?>
 			<div id="quotes" class="cycle-slideshow cycle-slideshow-init hiddenNow" data-cycle-log="false" data-cycle-fx="fade" data-cycle-auto-height="calc" data-cycle-timeout="7000" data-cycle-slides="> .singleQuote">
 				<?php foreach( $quotes as $post ):
 					setup_postdata($post);?>

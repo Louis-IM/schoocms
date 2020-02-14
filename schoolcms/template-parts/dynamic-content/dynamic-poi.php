@@ -8,11 +8,11 @@ global $is_sidebar;
 setup_postdata($post);
 if($is_sidebar){
 	$post_col = "col-12";
-}else {
+} else {
 	if(count($posts) % 3 == 0) {
 		$post_col = "col-md-4 ";
 	} else {		
-			$post_col = "col";
+		$post_col = "col";
 	}						
 }
 //Perform setting checks

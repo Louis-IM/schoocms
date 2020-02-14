@@ -19,17 +19,17 @@
 	</div>
 </div>
 <?php endif;?>
-
+<?php while ( have_posts() ) :
+			the_post();?>
 <div class="container">
 	<div class="welcomeBlock">
 		<div class="row">
-			<?php while ( have_posts() ) :
-			the_post();?>
+			
 				<div class="welcomeBlockText offset-xl-1 col-md-5">
 					<h1 class="entry-title home-title"><?php the_title();?></h1>
 					<?php the_content();?>
 				</div>
-			<?php endwhile;?>
+		
 			
 			<?php if(has_post_thumbnail()):?>
 				<div class="col-md-7 col-lg-6 col-xl-5">
@@ -42,21 +42,10 @@
 	</div>
 </div>
 
-
-
 <div class="homeContent container">
-<?php  if(have_rows('column_content')):
-while ( have_rows('column_content') ) : the_row(); ?>	
-	<?php $content_type = get_sub_field('content_type'); 
-	global $home_type;
-	$home_type = $content_type;?>
-	<section class="dynamicContent homeDynamic dynamic-<?php echo $content_type;?> hideme">
-		<?php get_template_part('template-parts/dynamic-content/home/dynamic', $content_type);?>
-	</section>		
-<?php endwhile;
-endif; ?>
+	<?php the_dynamic_content('column_content','home',false,'hideme');?>
 </div>
-
+	<?php endwhile;?>
 <div class="container hideme">
 	<div class="row">
 		<div class="col-sm-12 col-md-5 newsSlider">

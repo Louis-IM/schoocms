@@ -12,7 +12,6 @@
 	) ); ?>			
 
 		
-	<?php global $dynamic_content;	
-	$dynamic_content = 'left_column_content';?>
-	<?php get_template_part('dynamic-content'); ?>
+	
+	<?php the_dynamic_content('left_column_content','sidebar');?>
 </div>

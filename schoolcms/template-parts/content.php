@@ -21,7 +21,6 @@
 <?php 
 global $dynamic_content;
 if ( ! post_password_required() ) {
-$dynamic_content = 'column_content' ?>
-<?php get_template_part('dynamic-content'); 
+the_dynamic_content('column_content');
 }?>
 </div>

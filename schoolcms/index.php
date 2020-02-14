@@ -14,7 +14,7 @@
 				<?php if(function_exists('bcn_display')) {	bcn_display();	} ?>
 			</div>
 				<!-- page title -->
-				<h1 class="entry-title">News</h1>	
+				<h1 class="entry-title"><?php echo get_the_title(get_option('page_for_posts'));?></h1>	
 			<?php if ( have_posts() ) :
 				while ( have_posts() ) : the_post(); ?>
 				<?php get_template_part( 'template-parts/content', 'excerpt' );?>

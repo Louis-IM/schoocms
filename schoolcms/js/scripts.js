@@ -4,10 +4,7 @@ jQuery( document ).ready(function($) {
 		  $('body').toggleClass('menuopen');
 
 	});
-	
-	$(window).resize(function(){
-		  $('body').removeClass('menuopen');
-	});
+
 		
 	$('#menu-main li.menu-item-has-children .arrow').on('click',function(e){
 		$(this).parent('li').toggleClass('open');

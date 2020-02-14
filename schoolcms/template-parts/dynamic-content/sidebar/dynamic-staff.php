@@ -1,3 +1,5 @@
+<?php $section_title = get_sub_field('section_title');
+if($section_title):?><h2 class="sectionTitle"><?php echo $section_title;?></h2><?php endif;?>
 <?php if(have_rows('members_of_staff')):?>	
 	<div class="staff">
 	<?php  while ( have_rows('members_of_staff') ) : the_row();
