@@ -1,1 +1,1 @@
-# schoocms
+# Schoocms
