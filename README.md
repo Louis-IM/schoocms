@@ -41,3 +41,11 @@ Pulls in a callout
 Pulls in a point of interest
 #### Divider
 Adds a single row divider block to break items up.
+### Accessing Dynamic Content
+Dynamic content is pulled in through a function "the_dynamic_content()"
+    the_dynamic_content($dynamic_content = 'column_content', $dynamic_style = null, $cascade = null, $custom_class = null)
+
+- $dynamic_content = (String) The dynamic content Type. Defualts to the main "column content".
+- $dynamic_style = (String) the substyle of dynamic content. Set as subdomains within the dynamic content template styles (ie sidebar and home)
+- $cascade = (BOOL) Whether the content will check cascading up along parent pages until the options page. Defaults to true if it is a sidebar but can be disabled
+- $custom_class = (String) Custom classes to make styling each section easier.
