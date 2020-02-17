@@ -43,6 +43,7 @@ Pulls in a point of interest
 Adds a single row divider block to break items up.
 ### Accessing Dynamic Content
 Dynamic content is pulled in through a function "the_dynamic_content()"
+
     the_dynamic_content($dynamic_content = 'column_content', $dynamic_style = null, $cascade = null, $custom_class = null)
 
 - $dynamic_content = (String) The dynamic content Type. Defualts to the main "column content".
