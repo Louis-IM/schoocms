@@ -1,6 +1,8 @@
 # Schoocms
 Schoocms is the wordpress template for schools, using advanced custom fields to create customised content for pages.
 
+**Table of Contents**
+
 [TOCM]
 
 [TOC]
