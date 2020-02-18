@@ -41,7 +41,7 @@
 			<?php $banner_slide = get_sub_field('banner_image'); ?>
 				<div class="slide">
 					<div class="slideImage" style="background-image:url(<?php echo $banner_slide['sizes']['page-banner']; ?>)">
-						<?php echo wp_get_attachment_image($banner_slide[id],'page-banner');?>					
+						<?php echo wp_get_attachment_image($banner_slide['id'],'page-banner');?>					
 					</div>
 				</div>
 			<?php endwhile; ?>
