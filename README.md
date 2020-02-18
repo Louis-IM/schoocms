@@ -3,7 +3,7 @@ Schoocms is the wordpress template for schools, using advanced custom fields to 
 
 **Table of Contents**
 
- [TOC]
+ [ TOC ]
 
 ## Post Types
 Outside the standard set of wordpress post types Schoocms has its own set of post types to allow modification.
