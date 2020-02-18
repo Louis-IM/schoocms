@@ -83,7 +83,7 @@
         "label_placement": "top",
         "instruction_placement": "label",
         "hide_on_screen": "",
-        "active": 1,
+        "active": true,
         "description": ""
     },
     {
@@ -239,7 +239,7 @@
         "label_placement": "top",
         "instruction_placement": "label",
         "hide_on_screen": "",
-        "active": 1,
+        "active": true,
         "description": ""
     },
     {
@@ -281,7 +281,7 @@
         "label_placement": "top",
         "instruction_placement": "label",
         "hide_on_screen": "",
-        "active": 1,
+        "active": true,
         "description": ""
     },
     {
@@ -368,7 +368,7 @@
         "label_placement": "top",
         "instruction_placement": "label",
         "hide_on_screen": "",
-        "active": 1,
+        "active": true,
         "description": ""
     },
     {
@@ -451,7 +451,7 @@
         "label_placement": "top",
         "instruction_placement": "label",
         "hide_on_screen": "",
-        "active": 1,
+        "active": true,
         "description": ""
     },
     {
@@ -493,7 +493,7 @@
         "label_placement": "top",
         "instruction_placement": "label",
         "hide_on_screen": "",
-        "active": 1,
+        "active": true,
         "description": ""
     },
     {
@@ -554,7 +554,7 @@
         "label_placement": "top",
         "instruction_placement": "label",
         "hide_on_screen": "",
-        "active": 1,
+        "active": true,
         "description": ""
     },
     {
@@ -616,8 +616,8 @@
                     },
                     {
                         "key": "field_5c5c459f03d64",
-                        "label": "Text Line",
-                        "name": "text_line",
+                        "label": "Section Title",
+                        "name": "section_title",
                         "type": "text",
                         "instructions": "",
                         "required": 0,
@@ -627,6 +627,27 @@
                                     "field": "field_594a353818e17",
                                     "operator": "==",
                                     "value": "quote"
+                                }
+                            ],
+                            [
+                                {
+                                    "field": "field_594a353818e17",
+                                    "operator": "==",
+                                    "value": "documents"
+                                }
+                            ],
+                            [
+                                {
+                                    "field": "field_594a353818e17",
+                                    "operator": "==",
+                                    "value": "staff"
+                                }
+                            ],
+                            [
+                                {
+                                    "field": "field_594a353818e17",
+                                    "operator": "==",
+                                    "value": "faq"
                                 }
                             ]
                         ],
@@ -947,7 +968,9 @@
                         "max_width": "",
                         "max_height": "",
                         "max_size": "",
-                        "mime_types": ""
+                        "mime_types": "",
+                        "return_format": "array",
+                        "preview_size": "medium"
                     },
                     {
                         "key": "field_594a3b4c6ad9b",
@@ -1106,16 +1129,16 @@
         "label_placement": "top",
         "instruction_placement": "label",
         "hide_on_screen": "",
-        "active": 1,
+        "active": true,
         "description": ""
     },
     {
         "key": "group_595f5de6ab548",
-        "title": "Left Column",
+        "title": "Sidebar",
         "fields": [
             {
                 "key": "field_5d443c3679cbe",
-                "label": "Left Column Content",
+                "label": "Sidebar Content",
                 "name": "left_column_content",
                 "type": "repeater",
                 "instructions": "",
@@ -1168,8 +1191,8 @@
                     },
                     {
                         "key": "field_5d443c3679cc0",
-                        "label": "Text Line",
-                        "name": "text_line",
+                        "label": "Section Title",
+                        "name": "section_title",
                         "type": "text",
                         "instructions": "",
                         "required": 0,
@@ -1179,6 +1202,27 @@
                                     "field": "field_5d443c3679cbf",
                                     "operator": "==",
                                     "value": "quote"
+                                }
+                            ],
+                            [
+                                {
+                                    "field": "field_5d443c3679cbf",
+                                    "operator": "==",
+                                    "value": "staff"
+                                }
+                            ],
+                            [
+                                {
+                                    "field": "field_5d443c3679cbf",
+                                    "operator": "==",
+                                    "value": "documents"
+                                }
+                            ],
+                            [
+                                {
+                                    "field": "field_5d443c3679cbf",
+                                    "operator": "==",
+                                    "value": "faq"
                                 }
                             ]
                         ],
@@ -1499,7 +1543,9 @@
                         "max_width": "",
                         "max_height": "",
                         "max_size": "",
-                        "mime_types": ""
+                        "mime_types": "",
+                        "return_format": "array",
+                        "preview_size": "medium"
                     },
                     {
                         "key": "field_5d443c3679ccc",
@@ -1670,7 +1716,7 @@
         "label_placement": "top",
         "instruction_placement": "label",
         "hide_on_screen": "",
-        "active": 1,
+        "active": true,
         "description": ""
     }
 ]

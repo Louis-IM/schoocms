@@ -1,3 +1,5 @@
+<?php $section_title = get_sub_field('section_title');
+if($section_title):?><h2 class="sectionTitle"><?php echo $section_title;?></h2><?php endif;?>
 <?php if(have_rows('faq_items')):?>
 	<div class="faqs">
 	<?php while ( have_rows('faq_items') ) : the_row(); ?>

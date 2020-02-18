@@ -45,8 +45,6 @@
 </footer>
 
 				
-<?php wp_footer(); 
-
-	get_template_part('alerts');?>
+<?php wp_footer(); ?>
 </body>
 </html>

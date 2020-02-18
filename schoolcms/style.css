@@ -1,10 +1,10 @@
 /*
-	Theme Name: Schoolcms 2020
+	Theme Name: Schoolcms 2020 - DEV
 	Author: Innermedia
 Author URI: https://www.innermedia.co.uk
 Description: 
 Requires at least: WordPress 4.9.6
-Version: 3.0
+Version: 3.1
 
 /*Default Colur Scheme
 #000
@@ -57,7 +57,7 @@ a:hover {
 a:focus {
 text-decoration:none;
 }
-h1,h2,h3 {
+h1,h2,h3,.entry-title {
 	color:#000;
 	font-family: 'Crimson Pro', serif;
 }
@@ -78,8 +78,10 @@ table {
 
 h1,
 h1.entry-title,
+.entry-title,
 h2.entry-title {
-
+	font-size: 2.5rem;
+	margin-bottom:20px;
 }
 
 h2 {
@@ -94,12 +96,17 @@ h3 a {
   text-decoration:underline;
   color: #969696
 }
-
+.well {
+	padding:10px 15px;
+	background:#eaeaea;
+	border:solid 1px #ddd;
+	margin:20px 0;
+}
 .owl-dots span {
 	width:10px;
 	height:10px;
 	display:inline-block;
-	background:#CCCCCC;
+	background:#999;
 	border-radius:50%;
 }
 .owl-nav {
@@ -123,6 +130,10 @@ h3 a {
 .owl-dots .owl-dot {
 	display:inline-block;
 	margin:0 2px;
+	opacity:0.8;
+}
+.owl-dots .owl-dot.active {
+	opacity:1;
 }
 /****Button******/
 .blockButton > a,
@@ -374,18 +385,7 @@ a.readmore:hover {
   text-transform:uppercase;
   opacity: 0;
 }
-/*
-.headerSearch .searchform {
-	padding-left:35px;
-	padding-right:0px;
-	font-size:14px;
-}*/
 
-/*
-.headerSearch #searchSubmit {
-	right:auto;
-	left:0;
-}*/
 
 @media (min-width:768px){
 
@@ -439,29 +439,16 @@ a.readmore:hover {
     ALERT
 \*------------------------------------*/
 .popupAlert {
-  font-size:15px;
-  font-size:1.5rem;
   width:100%;
   max-width:600px;
-  min-width:450px;
 }
-.popupAlert .header{
-  font-size:1.8em;
-  padding:7px 3%;
-  text-align:center;
-  white-space:nowrap;
-      text-align: center;
-    position: relative;
-    text-transform:uppercase;
-}
+
 .noticeBody {
   width:100%;
   padding:0 2.5%;
 }
 .popupAlert .popupImg {
   padding:10px 5px;
-  width:48%;
-  float:right;
 }
 .popupAlert .popupImg img {
   width:100%
@@ -471,26 +458,18 @@ a.readmore:hover {
   width:100%;
   float:none;
 }
-.featimg  .noticeText {
-  width:48%;
-  float:left;  
-}
 .popupAlert .noticeText *{
   max-width:100%;
 }
 .popupAlert .noticeText .popTitle{
-      font-size: 1.5em;
-    text-transform: uppercase;
-    margin: 20px 0 0;
+    margin: 0px 0 20px;
 }
 
 
 
 /*news*/
 h2.list-item-title{
-	margin-top:0;
-	font-size:1.8em;
-	margin-bottom:20px;
+
 }
 h2.list-item-title a{
 	text-decoration:none;
@@ -1314,25 +1293,19 @@ a img.aligncenter {
 }
 #menu-side .sub-menu li.menu-item-has-children > .arrow:before {
 	position:absolute;
-	width:15px;
-	height:22px;
-	background-image:url(images/chevron-right-blue.png);
-	content:'';
-	display:block;
-	top:50%;
-	right:50%;
-	margin-top:-11px;
-	margin-right:-7px;
-	transition:transform 300ms;
-}
-#menu-side .sub-menu li.menu-item-has-children.current-menu-ancestor > .arrow:before{
-	background-image:url(images/chevron-right-green.png);	
+	content: '\f054';
+	display: block;
+	width: 11px;
+	height: 27px;
+	position: absolute;
+	left: 12px;
+	top: 21px;
+	font-weight: 700;
+	font-family: "Font Awesome 5 Free";
+	transform: rotate(0deg);
+	transition: 300ms;
 }
 
-#menu-side .sub-menu li.menu-item-has-children.current-menu-item > .arrow:before,
-#menu-side .sub-menu li.menu-item-has-children > a:hover + .arrow:before {
-	background-image:url(images/chevron-right-white.png);	
-}
 #menu-side .sub-menu li.menu-item-has-children.open > .arrow:before {
 	transform:rotate(90deg);
 }
@@ -1486,11 +1459,15 @@ body.menuopen:before {
 /*------------------------------------*\
     Dynamic Content
 \*------------------------------------*/
+
 .dynamicContent {
 	margin-top:30px;
 	margin-bottom:30px;
 }
-
+.dynamicContent .sectionTitle{
+	margin-bottom: 10px;
+    font-size: 2.2em;
+}
 @media (min-width:1590px){
 	
 }
@@ -1639,8 +1616,11 @@ clear: both;
     border-radius: 5px;
     text-transform: uppercase;
     pointer-events: none;
+	transition:300ms;
 }
-
+.staff-meta a.email-value:hover:before{
+	background-color:#ccc;
+}
 /*****Quotes******/
 blockquote {
 	border:0;
@@ -1798,7 +1778,9 @@ a.document-link:hover:after {
 /*sidebar callout*/
 
 /***POIS****/
-
+.pois .col {
+	min-width:33.333%;
+}
 .poi  {
 	position: relative;
 	display: block;

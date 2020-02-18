@@ -121,24 +121,6 @@ function azrPluginFix() {
 
 
 // **************************************
-// alert html
-// **************************************
-
-function get_alert_html($alert_page) {
-	$returnHTML = '';
-	$alert_title = $alert_page->post_title;
-	$alert_content = $alert_page->post_content;
-	$returnHTML .= $alert_title;
-	$returnHTML .= '<br>';
-	$returnHTML .= $alert_content;
-	$returnHTML .= '<br>';
-	return $returnHTML;
-}
-
-
-
-
-// **************************************
 // rename posts to news
 // **************************************
 function revcon_change_post_label() {
@@ -445,38 +427,6 @@ register_post_type('quote', array(
   'parent' => 'Parent Quote',
 )
 ) ); }
-add_action('init', 'cptui_register_my_cpt_alert');
-function cptui_register_my_cpt_alert() {
-register_post_type('alert', array(
-'label' => 'Alerts',
-'description' => '',
-'public' => false,
-'show_ui' => true,
-'show_in_menu' => true,
-'capability_type' => 'post',
-'map_meta_cap' => true,
-'hierarchical' => false,
-'rewrite' => array('slug' => 'alert', 'with_front' => true),
-'query_var' => true,
-'exclude_from_search' => true,
-'supports' => array('title','editor','excerpt','thumbnail'),
-'labels' => array (
-  'name' => 'Alerts',
-  'singular_name' => 'Alert',
-  'menu_name' => 'Alerts',
-  'add_new' => 'Add Alert',
-  'add_new_item' => 'Add New Alert',
-  'edit' => 'Edit',
-  'edit_item' => 'Edit Alert',
-  'new_item' => 'New Alert',
-  'view' => 'View Alert',
-  'view_item' => 'View Alert',
-  'search_items' => 'Search Alerts',
-  'not_found' => 'No Alerts Found',
-  'not_found_in_trash' => 'No Alerts Found in Trash',
-  'parent' => 'Parent Alert',
-)
-) ); }
 
 
 add_action('init', 'cptui_register_my_cpt_staff');
@@ -588,89 +538,7 @@ register_post_type('poi_banners', array(
 if(function_exists("register_field_group"))
 {
 
-	
-	register_field_group(array (
-		'id' => 'acf_alerts',
-		'title' => 'Alerts',
-		'key' => 'group_5823471022003',
-		'fields' => array (
-			array (
-				'key' => 'field_5305f3497d9cc',
-				'label' => 'Start Alert from',
-				'name' => 'timeframe_start',
-				'type' => 'date_picker',
-        'instructions' => '',
-        'required' => 0,
-        'conditional_logic' => 0,
-        'wrapper' => array (
-          'width' => '',
-          'class' => '',
-          'id' => '',
-        ),
-        'display_format' => 'd/m/Y',
-        'return_format' => 'Ymd',
-        'first_day' => 1,
-			),
-			array (
-				'key' => 'field_5305f3597d9cd',
-				'label' => 'End Alert from',
-				'name' => 'timeframe_end',
-				'type' => 'date_picker',
-        'instructions' => '',
-        'required' => 0,
-        'conditional_logic' => 0,
-        'wrapper' => array (
-          'width' => '',
-          'class' => '',
-          'id' => '',
-        ),
-        'display_format' => 'd/m/Y',
-        'return_format' => 'Ymd',
-        'first_day' => 1,
-			),
-			array (
-				'key' => 'field_5305f36a7d9ce',
-				'label' => 'Display the Alert:',
-				'name' => 'display_every',
-				'type' => 'select',
-				'choices' => array (
-					1 => 'Once a Day',
-					7 => 'Once a Week',
-					30 => 'Once a Month',
-          'session'=>'On Every New Visit'
-				),
-				'default_value' => '',
-				'allow_null' => 0,
-				'multiple' => 0,
-			),
-			array (
-				'key' => 'field_5305f3837d9cf',
-				'label' => 'Test Alert Box',
-				'name' => 'test_alert_box',
-				'type' => 'true_false',
-				'message' => '',
-				'default_value' => 0,
-			),
-		),
-		'location' => array (
-			array (
-				array (
-					'param' => 'post_type',
-					'operator' => '==',
-					'value' => 'alert',
-					'order_no' => 0,
-					'group_no' => 0,
-				),
-			),
-		),
-		'options' => array (
-			'position' => 'side',
-			'layout' => 'no_box',
-			'hide_on_screen' => array (
-			),
-		),
-		'menu_order' => 0,
-	));
+
 	
 	
 
@@ -822,9 +690,12 @@ if( function_exists('acf_add_options_page') ) {
 	acf_add_options_page(array(
 		'page_title' 	=> 'Theme General Settings',
 		'menu_title' 	=> 'Theme Settings',
+		'menu_slug' 	=> 'acf-options-theme-settings',
 		'redirect' 		=> false
 	));
 }
+
+include_once('alerts.php');
 
 //columns
 
@@ -880,16 +751,9 @@ function query_ancestors_acf($args,$srcId = null){
 
 
 
+/*Include Dynamic Content functions*/
+include_once('inc/dynamic-functions.php');
 
-function featuredtoRSS($content) {
-	global $post;
-	if(get_post_type($post) == 'tribe_events'){
-		$content = '<time>'. tribe_get_start_date($post->ID, false, 'jS M') .'</time><div>' . $content . "</div>";
-	}
-	return $content;
-}
-add_filter('the_excerpt_rss', 'featuredtoRSS');
-add_filter('the_content_feed', 'featuredtoRSS');
 
 
 /*MainBody clases to be used across site*/
