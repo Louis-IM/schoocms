@@ -6,7 +6,7 @@ $dynamic_style = The sub type of dynamic content. Defaults to using base content
 $cascade = true/false will cascades the content up to the top level.
 $custom_class
 
-Sidebar excerptions : The sidebar will default to casscade as well as set a $is_sidebar variable as true
+Sidebar exceptions : The sidebar will default to casscade as well as set a $is_sidebar variable as true
 */
 
 function the_dynamic_content($dynamic_content = 'column_content', $dynamic_style = null, $cascade = null, $custom_class = null){
@@ -23,7 +23,7 @@ function the_dynamic_content($dynamic_content = 'column_content', $dynamic_style
 			$content_from = 'options';
 		} 
 	}
-	//Set is sidebar if sidebar
+	//Set value is_sidebar true if sidebar
 	if($dynamic_style == 'sidebar'){
 		$is_sidebar = true;
 	}
