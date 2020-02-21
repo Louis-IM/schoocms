@@ -1,14 +1,8 @@
-<?php
-
-get_header(); 
-
-?>
-
-
-
+<?php get_header(); ?>
+<?php get_template_part('page-banner-holder'); ?>
+		
+<div class="container body-container">	
 	
-<div class="container special-container">
-	<?php get_template_part('page-banner-holder'); ?>
 	
 <div class="row">
 
@@ -33,10 +27,6 @@ get_header();
 	</div>
 
 </div> <!-- /container -->
-
-
-<?php // include('page-wide-pois.php') ?>
-
 
 
 
