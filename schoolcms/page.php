@@ -1,10 +1,7 @@
 <?php get_header(); ?>
-<?php get_template_part('page-banner-holder'); ?>
-		
+<?php get_template_part('page-banner-holder'); ?>		
 <div class="container body-container">	
 	<div class="row">
-	
-
 		<div class="<?php echo main_column_classes();?>">		
 		<!-- breadcrumbs -->	
 		<div class="breadcrumbs">
@@ -23,14 +20,5 @@
 			<?php get_template_part('template-parts/sidebar/sidebar');?>
 		</div>
 	</div>
-
 </div> <!-- /container -->
-
-
-
-
-
-
-
-
 <?php get_footer(); ?>

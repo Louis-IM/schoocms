@@ -1,6 +1,4 @@
 <?php get_header();?>
-
-
 <?php global $bannerGeneral;
 $bannerGeneral = true;
 get_template_part('page-banner-holder'); ?>
