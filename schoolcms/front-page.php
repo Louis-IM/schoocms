@@ -9,7 +9,7 @@
 		<?php $banner_slide = get_sub_field('banner_image'); ?>
 			<div class="slide">
 				<div class="slideImage" style="background-image:url(<?php echo $banner_slide['sizes']['home-banner']; ?>)">
-					<?php echo wp_get_attachment_image($banner_slide[id],'home-banner');?>					
+					<?php echo wp_get_attachment_image($banner_slide['id'],'home-banner');?>					
 				</div>
 				<div class="slideText">
 					<?php the_sub_field('top_text');?>
