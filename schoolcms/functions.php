@@ -1,9 +1,6 @@
 <?php
-/**
- * Schoocms Functions and Definitions
- */
+/*Schoocms Functions and Definitions*/
 function schoocms_setup() {
-
 	add_theme_support( 'post-thumbnails' );
 	/*Do not edit*/
 	add_image_size( 'small-thumbnail'	, 150, 150, true );
@@ -11,12 +8,12 @@ function schoocms_setup() {
 	add_image_size( 'large-thumbnail'	, 768, 768, true );
   	add_image_size( 'landscape', 1024, 768,true ); 
   	add_image_size( 'portrait', 768, 1024,true ); 
+	
 	/*Thumbnail, Medium and Large sizes are edited within the media settings*/	
 	
 	/*Edit and add as design sees fit*/
 	add_image_size( 'page-banner'	, 1560, 560, true );
-	add_image_size( 'home-banner'	, 1560, 875, true );
-	
+	add_image_size( 'home-banner'	, 1560, 875, true );	
 
 	// This theme uses wp_nav_menu() in two locations.
 	register_nav_menus( array(
@@ -39,9 +36,6 @@ function schoocms_setup() {
 }
 add_action( 'after_setup_theme', 'schoocms_setup' );
 
-
-
-
 function schoocms_widgets_init() {
 	register_sidebar( array(
 		'name'          => 'News Sidebar',
@@ -54,8 +48,6 @@ function schoocms_widgets_init() {
 	) );
 }
 add_action( 'widgets_init', 'schoocms_widgets_init' );
-	
-	
 	
 /**
  * Enqueue scripts and styles.
@@ -82,15 +74,13 @@ add_action( 'wp_enqueue_scripts', 'schoocms_required_scripts' );
 function schoocms_fonts() {
 	/*Put Font Includes here*/	
 	wp_enqueue_style( 'open-sans', 'https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i&display=swap' );
-	wp_enqueue_style( 'crimson-pro', 'https://fonts.googleapis.com/css?family=Crimson+Pro:400,700&display=swap' );
-	
+	wp_enqueue_style( 'crimson-pro', 'https://fonts.googleapis.com/css?family=Crimson+Pro:400,700&display=swap' );	
 	
 }
 add_action( 'wp_enqueue_scripts', 'schoocms_fonts' );
 
 function schoolcms_custom_scripts() {
-	/*Further Scripts and Styles Stylesheet and scripts file set here to overwrite*/
-	
+	/*Further Scripts and Styles Stylesheet and scripts file set here to overwrite*/	
 	
 	wp_enqueue_style( 'sc-style', get_stylesheet_uri() );
 	wp_enqueue_script( 'scripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'), '1', true );
@@ -531,169 +521,11 @@ register_post_type('poi_banners', array(
 ) ); }
 
 
+include_once('inc/custom-fields.php');
 
-
-
-/*Custom fields*/
-if(function_exists("register_field_group"))
-{
-
-
-	
-	
-
-	register_field_group(array (
-		'id' => 'acf_documents',
-		'title' => 'Documents',
-		'fields' => array (
-			array (
-				'key' => 'field_52a1fa91d76b9',
-				'label' => 'Document',
-				'name' => 'document',
-				'type' => 'file',
-				'save_format' => 'object',
-				'library' => 'all',
-			),
-		),
-		'location' => array (
-			array (
-				array (
-					'param' => 'post_type',
-					'operator' => '==',
-					'value' => 'documents',
-					'order_no' => 0,
-					'group_no' => 0,
-				),
-			),
-		),
-		'options' => array (
-			'position' => 'normal',
-			'layout' => 'no_box',
-			'hide_on_screen' => array (
-			),
-		),
-		'menu_order' => 0,
-	));
-
-	
-	
-	register_field_group( array (
-		'id' => 'acf_quote-fields',
-		'title' => 'Quote Fields',
-		'fields' => array (
-			array (
-				'key' => 'field_52ab345a5878b',
-				'label' => 'Cite',
-				'name' => 'cite',
-				'type' => 'text',
-				'default_value' => '',
-				'placeholder' => '',
-				'prepend' => '',
-				'append' => '',
-				'formatting' => 'html',
-				'maxlength' => '',
-			),
-		),
-		'location' => array (
-			array (
-				array (
-					'param' => 'post_type',
-					'operator' => '==',
-					'value' => 'quote',
-					'order_no' => 0,
-					'group_no' => 0,
-				),
-			),
-		),
-		'options' => array (
-			'position' => 'normal',
-			'layout' => 'no_box',
-			'hide_on_screen' => array (
-			),
-		),
-		'menu_order' => 0,
-	));
-	
-
-	
-	
-
-	
-
-	register_field_group(array (
-		'id' => 'acf_staff-members',
-		'title' => 'Staff Members',
-		'fields' => array (
-			array (
-				'key' => 'field_52a70cf108ce1',
-				'label' => 'Position',
-				'name' => 'position',
-				'type' => 'text',
-				'default_value' => '',
-				'placeholder' => '',
-				'prepend' => '',
-				'append' => '',
-				'formatting' => 'html',
-				'maxlength' => '',
-			),
-			array (
-				'key' => 'field_52a6fcbc883be',
-				'label' => 'Qualifications',
-				'name' => 'qualifications',
-				'type' => 'text',
-				'default_value' => '',
-				'placeholder' => '',
-				'prepend' => '',
-				'append' => '',
-				'formatting' => 'html',
-				'maxlength' => '',
-			),
-			array (
-				'key' => 'field_52a6fcc8883bf',
-				'label' => 'Email',
-				'name' => 'email',
-				'type' => 'text',
-				'default_value' => '',
-				'placeholder' => '',
-				'prepend' => '',
-				'append' => '',
-				'formatting' => 'html',
-				'maxlength' => '',
-			),
-		),
-		'location' => array (
-			array (
-				array (
-					'param' => 'post_type',
-					'operator' => '==',
-					'value' => 'staff',
-					'order_no' => 0,
-					'group_no' => 0,
-				),
-			),
-		),
-		'options' => array (
-			'position' => 'normal',
-			'layout' => 'default',
-			'hide_on_screen' => array (
-			),
-		),
-		'menu_order' => 0,
-	));
-
-}
 /*End Custom Fields*/
 
-
-if( function_exists('acf_add_options_page') ) { 	
- 	// add parent
-	acf_add_options_page(array(
-		'page_title' 	=> 'Theme General Settings',
-		'menu_title' 	=> 'Theme Settings',
-		'menu_slug' 	=> 'acf-options-theme-settings',
-		'redirect' 		=> false
-	));
-}
+include_once('inc/schoocms_options.php');
 
 include_once('alerts.php');
 
@@ -791,3 +623,7 @@ function remove_h1_from_editor( $settings ) {
     return $settings;
 }
 add_filter( 'tiny_mce_before_init', 'remove_h1_from_editor' );
+
+/*Curriculum includes*/
+
+//include_once('inc/curriculum.php');

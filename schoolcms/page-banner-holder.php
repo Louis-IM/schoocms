@@ -1,4 +1,3 @@
-
 <div class="page-banner" id="pageBanner">
 	<?php 
 	global $bannerGeneral;
@@ -12,8 +11,6 @@
 		/*query for page banners above*/		
 		$banner_slides_from = query_ancestors_acf('banner_slides');
 	}
-	
-
 	/*if news post without banner use news page as first fallback*/
 	if($post->post_type == 'post' ){
 		$newsPage = get_option('page_for_posts');
@@ -27,8 +24,7 @@
 					$banner_slides_from = $newsPage;
 				}
 			}
-		}
-		
+		}		
 	}
 	/*get options page banner as fallback*/
 	if(!$banner_slides_from || $bannerGeneral == true){
