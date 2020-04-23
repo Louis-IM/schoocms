@@ -611,6 +611,11 @@ acf_add_local_field_group(array(
 			),
 		),
 		array(
+				'param' => 'page_type',
+				'operator' => '!=',
+				'value' => 'front_page',
+			),
+		array(
 			array(
 				'param' => 'post_type',
 				'operator' => '==',
