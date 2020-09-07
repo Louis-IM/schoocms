@@ -40,7 +40,7 @@ function the_dynamic_content($dynamic_content = 'column_content', $dynamic_style
 }
 
 /*Dynamic ACF Fields Central and Sidebar*/
-
+/*
 if( function_exists('acf_add_local_field_group') ):
 
 acf_add_local_field_group(array(
@@ -608,6 +608,11 @@ acf_add_local_field_group(array(
 				'param' => 'post_type',
 				'operator' => '==',
 				'value' => 'page',
+			),
+			array(
+				'param' => 'page_type',
+				'operator' => '!=',
+				'value' => 'front_page',
 			),
 		),
 		array(
@@ -1226,5 +1231,5 @@ acf_add_local_field_group(array(
 ));
 
 endif;
-
+*/
 ?>

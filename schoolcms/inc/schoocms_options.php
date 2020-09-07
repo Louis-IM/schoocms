@@ -10,7 +10,7 @@ if( function_exists('acf_add_options_page') ) {
 	));
 }
 
-
+/*
 if( function_exists('acf_add_local_field_group') ):
 
 acf_add_local_field_group(array(
@@ -213,4 +213,4 @@ acf_add_local_field_group(array(
 	'description' => '',
 ));
 
-endif;
+endif;*/

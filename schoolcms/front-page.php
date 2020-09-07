@@ -43,7 +43,7 @@
 </div>
 
 <div class="homeContent container">
-	<?php the_dynamic_content('column_content','home',false,'hideme');?>
+	<?php the_dynamic_content('home_content','home',false,'hideme');?>
 </div>
 	<?php endwhile;?>
 <div class="container hideme">
