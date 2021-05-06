@@ -532,7 +532,7 @@ add_filter( 'media_view_settings', 'my_gallery_default_type_set_link');
 
 
 function column_divider(){
-	return '</div><div class="col-lg-6">';
+	return '</div><div class="col-md">';
 }
 add_shortcode( 'column_divider', 'column_divider' ); 
 
