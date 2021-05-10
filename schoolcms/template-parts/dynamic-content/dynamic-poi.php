@@ -34,8 +34,9 @@ if(!$thumbnailSize){
 		<?php //output different pois depending on whether poi has a thumbnail
 		if(get_the_post_thumbnail_url($post)):?>
 			<div class="poiImage">
-				<div class="poiImageBG" style="background-image:url(<?php echo get_the_post_thumbnail_url($post,$thumbnailSize  ) ?>)"></div>
+				<div class="poiImageBG">
 				<?php echo get_the_post_thumbnail($post, $thumbnailSize ) ?>
+				</div>
 					<div class="poiText">				
 						<div class="poiTitle">
 							<?php echo $text ?>

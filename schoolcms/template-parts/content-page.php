@@ -11,7 +11,7 @@
 	<?php $raw_content = get_the_content(); 
 	?>
 		<div class="row body-text">
-			<div class="<?php echo (strpos($raw_content,'[column_divider]')) ? 'col-lg-6' : 'col-lg-12' ; ?>">
+			<div class="col-md">
 				<?php the_content(); ?>
 				<?php wp_link_pages(); ?>
 			</div>

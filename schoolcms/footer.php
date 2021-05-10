@@ -15,7 +15,7 @@
 ?>
 
 
-<footer>
+<footer id="footer">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6">
@@ -33,17 +33,17 @@
 					<p>&copy; <?php bloginfo('name');?> <?php echo date('Y');?></p>
 					<?php the_field('registered_information','options');?>
 				</div>
-				<div class="col-sm-4 sm-text-center">
+				<div class="col-sm-4 text-sm-center">
 					<p><a href="<?php bloginfo('url');?>/sitemap.xml">Sitemap</a> | <a href="<?php bloginfo('url');?>/privacy-policy">Privacy Policy</a> | <a href="<?php bloginfo('url');?>/cookie-policy">Cookies</a> </p>
 				</div>
-				<div class="col-sm-4 sm-text-right">
-					<p><a href="https://www.innermedia.co.uk/" rel="nofollow">Designed by Innermedia <img src="<?php bloginfo('template_url');?>/images/im-logo.png" alt="innermedia" /></a></p>
+				<div class="col-sm-4 text-sm-end">
+					<p><a href="https://www.innermedia.co.uk/" rel="nofollow">Designed by Innermedia <img src="<?php bloginfo('template_url');?>/images/im-logo.png" alt="innermedia" width="11" height="11"/></a></p>
 				</div>
 			</div>
 		</div>
 	</div>
 </footer>
-
+</div>
 				
 <?php wp_footer(); ?>
 </body>

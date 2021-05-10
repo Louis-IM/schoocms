@@ -92,7 +92,7 @@ if($section_title):?><h2 class="sectionTitle"><?php echo $section_title;?></h2><
 							</div>
 							<?php if($post->post_content != ''):?>
 								<div class="staff-biog">
-									<?php html5wp_excerpt(html5wp_custom_post) ?>	
+									<?php html5wp_excerpt('html5wp_custom_post') ?>	
 									<a href="<?php the_permalink();?>" class="readmore">Read More</a>
 								</div>
 							<?php endif;?>

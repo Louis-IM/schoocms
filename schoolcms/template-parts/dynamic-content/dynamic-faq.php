@@ -7,8 +7,8 @@ if($section_title):?><h2 class="sectionTitle"><?php echo $section_title;?></h2><
 			<h3 class="faq-question">
 				<?php the_sub_field('question') ?>	
 			</h3>
-			<div class="faq-answer">
-				<div class="row"><div class="col">
+			<div class="faq-answer body-text">
+				<div class="row"><div class="col-md">
 					<?php the_sub_field('answer') ?>	
 				</div></div>
 			</div>

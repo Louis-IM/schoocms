@@ -11,14 +11,18 @@
 			$hasText = ' notext';			
 		}
 	?>
-	<?php $callout_bg = ( has_post_thumbnail($callout->ID) ) ? ' style="background-image:url(\'' . get_the_post_thumbnail_url( $callout->ID, 'home-banner' ) . '\'" ' : "" ; ?>
 						
 
 						
-	<div class="callout <?php if($callout_bg != ''){echo 'hasbg ';} echo $hasText;?>">
-		<div class="coimg" <?php echo $callout_bg;?>>
-			<?php if(has_post_thumbnail($callout)){ echo get_the_post_thumbnail( $callout->ID, 'home-banner' );}?>
+	<div class="callout <?php if(has_post_thumbnail($callout)){echo 'hasbg ';} echo $hasText;?>">
+		<?php if(has_post_thumbnail($callout)){ ?>
+		<div class="coimg">	
+			<picture>
+				<source srcset="<?php echo get_the_post_thumbnail_url( $callout->ID, 'home-banner' );?>" media="(min-width:768px)">
+				<img src="<?php echo get_the_post_thumbnail_url( $callout->ID, 'large-thumbnail' );?>" alt="<?php the_field('text');?>"/>
+			</picture>
 		</div>
+		<?php }?>
 		<div class="calloutContent">
 			<div class="row">
 				<div class="col">
