@@ -1311,6 +1311,7 @@ body.menuopen:before {
 \*------------------------------------*/
 
 .dynamicContent {
+	margin-top:40px;
 	margin-bottom:40px;
 }
 .dynamicContent .sectionTitle{
@@ -1649,12 +1650,13 @@ a.document-link:hover:after {
 /*sidebar callout*/
 
 /***POIS****/
+.pois {
+	margin-bottom:-30px;
+}
 .pois .col {
 	min-width:33.333%;
 }
-.dynamicContent.dynamic-poi {
-	margin-bottom:0;
-}
+
 .poi {
 	position: relative;
 	display: block;
