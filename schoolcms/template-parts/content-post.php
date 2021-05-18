@@ -11,9 +11,13 @@
 	<?php $raw_content = get_the_content(); 
 	?>
 		<div class="row body-text">
-			<div class="<?php echo (strpos($raw_content,'[column_divider]')) ? 'col-lg-6' : 'col-lg-12' ; ?>">
-				<?php the_content(); ?>
-				<?php wp_link_pages(); ?>
+			<div class="col-md">
+				<?php the_content(); ?>				
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+			<?php wp_link_pages(); ?>
 				
 				<?php
 				$categories = get_the_category();

@@ -54,30 +54,29 @@ add_action( 'widgets_init', 'schoocms_widgets_init' );
  */
  function schoocms_required_scripts(){
 	//required scripts. Do not modify
-	wp_enqueue_style( 'bootstrap-style', get_template_directory_uri() . '/css/bootstrap/bootstrap.min.css', '', '4.3.1' );
-	wp_enqueue_style( 'fontawesome', 'https://use.fontawesome.com/releases/v5.7.1/css/all.css');
-	wp_enqueue_style( 'owl-style', get_template_directory_uri() . '/css/owl.carousel.min.css' );
-	wp_enqueue_style( 'fancybox-style', get_template_directory_uri() . '/css/jquery.fancybox.min.css' );
+	wp_enqueue_style( 'bootstrap-style', get_template_directory_uri() . '/css/bootstrap/bootstrap.min.css', '', '5.0.0' );
+	wp_enqueue_style( 'fontawesome', get_template_directory_uri() . '/fonts/fontawesome/css/all.min.css', '', '5.15.3');
 	
-	wp_enqueue_script( 'bootstrap-scripts', get_template_directory_uri() . '/js/bootstrap/bootstrap.min.js', array('jquery'), '4.3.1', true );
+	wp_enqueue_script( 'bootstrap-scripts', get_template_directory_uri() . '/js/bootstrap/bootstrap.min.js', array('jquery'), '5.0.0', true );
 	wp_enqueue_script( 'cookie', get_template_directory_uri() . '/js/jquery.cookie.js', array('jquery'), '', true );
 	wp_enqueue_script( 'cycle2', get_template_directory_uri() . '/js/jquery.cycle2.min.js', array('jquery'), '2.1.6', true );
-	wp_enqueue_script( 'imagesloaded', get_template_directory_uri() . '/js/imagesloaded.pkgd.min.js', array('jquery'), '4.1.1', true );
-	wp_enqueue_script( 'owl', get_template_directory_uri() . '/js/owl.carousel.min.js', array('jquery'), '2.2.1', true );
-	wp_enqueue_script( 'fancybox', get_template_directory_uri() . '/js/jquery.fancybox.min.js', array('jquery'), '3', true );	
-	
-	
+	wp_enqueue_script( 'owl', get_template_directory_uri() . '/js/owl.carousel.min.js', array('jquery'), '2.3.4', true );
+	wp_enqueue_script( 'fancybox', get_template_directory_uri() . '/js/jquery.fancybox.min.js', array('jquery'), '3.5.7', true );	
  }
 add_action( 'wp_enqueue_scripts', 'schoocms_required_scripts' ); 
- 
- 
+function schoocms_required_scripts_defer(){
+	wp_enqueue_style( 'fancybox-style', get_template_directory_uri() . '/css/jquery.fancybox.min.css','', '3.5.7');  
+	wp_enqueue_style( 'owl-style', get_template_directory_uri() . '/css/owl.carousel.min.css', '', '2.3.4' );
+}
+ add_action( 'get_footer', 'schoocms_required_scripts_defer' ); 
 function schoocms_fonts() {
 	/*Put Font Includes here*/	
 	wp_enqueue_style( 'open-sans', 'https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i&display=swap' );
 	wp_enqueue_style( 'crimson-pro', 'https://fonts.googleapis.com/css?family=Crimson+Pro:400,700&display=swap' );	
 	
 }
-add_action( 'wp_enqueue_scripts', 'schoocms_fonts' );
+add_action( 'get_footer', 'schoocms_fonts' );
+
 
 function schoolcms_custom_scripts() {
 	/*Further Scripts and Styles Stylesheet and scripts file set here to overwrite*/	
@@ -89,26 +88,24 @@ function schoolcms_custom_scripts() {
 add_action( 'wp_enqueue_scripts', 'schoolcms_custom_scripts' );
 
 
-// FIX FOR MANUAL IMAGE CROP PLUGIN
-add_action('admin_head', 'azrPluginFix');
-function azrPluginFix() {
-  echo '<style>
-	.mic-left-col {
-	  width:400px !important;
-	} 
-	.mic-editor-wrapper .nav-tab-wrapper {
-		margin-bottom:20px !important;
-	}
-  </style>';
-}
-
+/* SCHOOCMS Speed Fixes*/
+include('inc/optimisation.php');
 
 // **************************************
 // **************************************
 // SCHOOCMS FUNCTIONS
 // **************************************
 // **************************************
-
+//No Srcset attachment image
+function wp_get_attachment_image_no_srcset($attachment_id, $size = 'thumbnail', $icon = false, $attr = '') {
+    // add a filter to return null for srcset
+    add_filter( 'wp_calculate_image_srcset_meta', '__return_null' );
+    // get the srcset-less img html
+    $html = wp_get_attachment_image($attachment_id, $size, $icon, $attr);
+    // remove the above filter
+    remove_filter( 'wp_calculate_image_srcset_meta', '__return_null' );
+    return $html;
+}
 
 // **************************************
 // rename posts to news
@@ -252,8 +249,8 @@ function html5_blank_view_article($more)
     return '... ';
 }
 add_filter('excerpt_more', 'html5_blank_view_article'); 
-/*add sub_menu functionality to wp_nav_menu*/
 
+/*add sub_menu functionality to wp_nav_menu*/
 
 // filter_hook function to react on sub_menu flag
 function my_wp_nav_menu_objects_sub_menu( $sorted_menu_items, $args ) {
@@ -518,7 +515,9 @@ include_once('inc/custom-fields.php');
 
 include_once('inc/schoocms_options.php');
 
-include_once('alerts.php');
+include_once('inc/shortcodes.php');
+
+include_once('inc/alerts.php');
 
 //columns
 
@@ -528,14 +527,6 @@ function my_gallery_default_type_set_link( $settings ) {
     return $settings;
 }
 add_filter( 'media_view_settings', 'my_gallery_default_type_set_link');
-
-
-
-function column_divider(){
-	return '</div><div class="col-md">';
-}
-add_shortcode( 'column_divider', 'column_divider' ); 
-
 
 
 function SearchFilter($query) {

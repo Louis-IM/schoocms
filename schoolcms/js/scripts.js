@@ -1,11 +1,8 @@
-jQuery( document ).ready(function($) {
+(function($) {
 	// menu-toggles
 	$('.menu-toggle, .close-link, #toggler').on('click',function(){
 		  $('body').toggleClass('menuopen');
-
-	});
-
-		
+	});		
 	$('#menu-main li.menu-item-has-children .arrow').on('click',function(e){
 		$(this).parent('li').toggleClass('open');
 		e.stopPropagation();
@@ -14,14 +11,10 @@ jQuery( document ).ready(function($) {
 		$(this).parent('li').toggleClass('open');
 		e.stopPropagation();
 	});
-
-	$('#menu-main li.current-menu-ancestor').addClass('open');
 	$('#menu-main li.menu-item-has-children.current-menu-ancestor').addClass('open');
-	$('#menu-side li.current-menu-ancestor').addClass('open');
+	$('#menu-main li.menu-item-has-children.current-menu-item').addClass('open');
 	$('#menu-side li.menu-item-has-children.current-menu-ancestor').addClass('open');
 	$('#menu-side li.menu-item-has-children.current-menu-item').addClass('open');
-	
-	
 	// end-menu-toggles
 	
 	$('.faq-question').on('click',function(){
@@ -32,8 +25,6 @@ jQuery( document ).ready(function($) {
 		$(faq).toggleClass('open');
 		$(faq).children('.faq-answer').slideToggle();
 	});
-	
-	
 	
 	$('#searchform .searchSubmit').click(function(e){
      var parentContainer = $(this).parents('#searchform');
@@ -51,18 +42,16 @@ jQuery( document ).ready(function($) {
     return false;
   });
   $('body.home').addClass('fixedHome');
-  var fixHeader =  function(){
-var windowHeight = $(window).height();
-if($(window).scrollTop() < 150) {
-$('body').removeClass('fixedHeader');
-$('body.home').addClass('fixedHome');
-}
-else {
-$('body').addClass('fixedHeader');
-if($(window).width() > 752){
+  function fixHeader(){
+	var windowHeight = $(window).height();
+	if($(window).scrollTop() < 150) {
+	$('body').removeClass('fixedHeader');
+	$('body.home').addClass('fixedHome');
+	}
+	else {
+	$('body').addClass('fixedHeader');
 	$('body.home').removeClass('fixedHome');
-}
-} 
+	} 
   }
 $(document).ready(fixHeader);
 $(window).scroll(fixHeader);  
@@ -95,4 +84,16 @@ $(window).scroll( function(){
 
 $('.wpforms-field-address-country').val('GB');
 
+$('.body-text iframe').each(function(){
+	var wrapitem = $(this);
+	if(!wrapitem.parent().hasClass('embed-container')){
+		wrapitem.wrap('<div class="embed-container"></div>');
+	}
 });
+$('.body-text table').each(function(){
+	var wrapitem = $(this);
+	if(!wrapitem.parent().hasClass('table-responsive')){
+		wrapitem.wrap('<div class="table-responsive"></div>');
+	}
+});
+})( jQuery );
