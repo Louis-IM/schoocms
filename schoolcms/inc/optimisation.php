@@ -15,8 +15,7 @@ function themeprefix_load_fonts() {  ?>
 <link rel="preload" as="fetch" href="<?php echo get_template_directory_uri() . '/fonts/fontawesome/css/all.min.css'?>">
 <link rel="preload" as="font" type="font/woff2" crossorigin href="<?php echo get_template_directory_uri() . '/fonts/fontawesome/webfonts/fa-brands-400.woff2'?>"/>
 <link rel="preload" as="font" type="font/woff2" crossorigin href="<?php echo get_template_directory_uri() . '/fonts/fontawesome/webfonts/fa-solid-900.woff2'?>"/>
-<link rel="preload" as="font" type="font/woff2" crossorigin href="http://schooc46.vm001.innermedia.co.uk/wp-content/plugins/custom-twitter-feeds-pro/fonts/fontawesome-webfont.woff?v=4.6.1"/>
-<link rel="preload" as="font" type="font/woff2" crossorigin href="http://schooc46.vm001.innermedia.co.uk/wp-content/plugins/custom-twitter-feeds-pro/fonts/fontawesome-webfont.woff"/>
+
 <?php /*Add addional styles and fonts that need be preloaded. Pagespeed insights will flag these up*/?>
 	
 	<?php 
