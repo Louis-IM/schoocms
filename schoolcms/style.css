@@ -1097,6 +1097,15 @@ a img.aligncenter {
 .bypostauthor {
 
 }
+@media (max-width:767.99px){
+	.alignright,
+	.alignleft,
+	a img.alignright,
+	a img.alignleft{
+		float:none;
+		margin:5px auto 20px;
+	}
+}
 
 
 
