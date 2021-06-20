@@ -1104,6 +1104,7 @@ a img.aligncenter {
 	a img.alignleft{
 		float:none;
 		margin:5px auto 20px;
+		display:block;
 	}
 }
 
