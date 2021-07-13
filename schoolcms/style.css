@@ -605,8 +605,6 @@ header.mainHeader {
 		margin-top:32px
 	}
 	
-	
-	
 }
 /*home*/
 @media (max-width:767.99px){	
@@ -1096,6 +1094,16 @@ a img.aligncenter {
 }
 .bypostauthor {
 
+}
+@media (max-width:767.99px){
+	.alignright,
+	.alignleft,
+	a img.alignright,
+	a img.alignleft{
+		float:none;
+		margin:5px auto 20px;
+		display:block;
+	}
 }
 
 

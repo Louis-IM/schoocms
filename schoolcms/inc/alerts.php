@@ -268,10 +268,12 @@ function hook_alert(){
 			<?php else:
 			$noVar = get_field('frequency','custom_alert');
 			?>
-				if(jQuery.cookie("schooAlert<?php echo $post->ID.$noVar;?>") != 'true') {
-					setTimeout(function(){jQuery("a#trig").click();},1000);
-					jQuery.cookie("schooAlert<?php echo $post->ID.$noVar;?>", "true", { path: '/', <?php if($noVar != 'session'){?>expires: <?php if($noVar) echo $noVar; else echo '1';}?> }); 
-				}
+				jQuery(document).ready(function($){
+					if(jQuery.cookie("schooAlert<?php echo $post->ID.$noVar;?>") != 'true') {
+						setTimeout(function(){jQuery("a#trig").click();},1000);
+						jQuery.cookie("schooAlert<?php echo $post->ID.$noVar;?>", "true", { path: '/', <?php if($noVar != 'session'){?>expires: <?php if($noVar) echo $noVar; else echo '1';}?> }); 
+					}
+				})
 			<?php endif;?>
 		</script>	
 <?php }
