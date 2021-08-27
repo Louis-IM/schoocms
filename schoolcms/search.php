@@ -1,13 +1,11 @@
 <?php get_header();?>
-<?php global $bannerGeneral;
-$bannerGeneral = true;
-get_template_part('page-banner-holder'); ?>
+<?php get_template_part('template-parts/banner','page'); ?>
 
 <div class="container body-container">
 	<div class="row">
 	
 
-		<div class="bodyContent  <?php echo main_column_classes();?>">		
+		<div class="bodyContent col-12">		
 
 			<!-- breadcrumbs -->	
 			<div class="breadcrumbs">
@@ -22,7 +20,7 @@ get_template_part('page-banner-holder'); ?>
             </div><!--/.well -->
 				<?php
 				while ( have_posts() ) : the_post(); ?>
-				<?php get_template_part( 'template-parts/content', 'excerpt' );?>
+				<?php get_template_part( 'template-parts/content', 'search' );?>
 				
 			<?	endwhile;
 				the_posts_pagination();
@@ -31,11 +29,6 @@ get_template_part('page-banner-holder'); ?>
 
 		endif; ?>
 
-		</div>
-		
-
-		<div class="<?php echo left_column_classes();?>">
-			<?php get_template_part('template-parts/sidebar/sidebar','archive');?>			
 		</div>
 		
 	</div>

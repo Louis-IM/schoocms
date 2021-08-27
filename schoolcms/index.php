@@ -1,7 +1,5 @@
 <?php get_header(); ?>
-
-	
-	<?php get_template_part('page-banner-holder'); ?>
+<?php get_template_part('template-parts/banner','page'); ?>
 	
 
 
