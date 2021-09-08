@@ -600,6 +600,11 @@ function wpforms_custom_capability( $cap ) {
 }
 add_filter( 'wpforms_manage_cap', 'wpforms_custom_capability' );
 
+function wpf_dev_email_display_other_fields( $fields ) { 
+    return array( 'divider');
+} 
+add_filter( 'wpforms_email_display_other_fields', 'wpf_dev_email_display_other_fields', 10, 1 );
+
 function remove_h1_from_editor( $settings ) {
     $settings['block_formats'] = 'Paragraph=p;Heading 2=h2;Heading 3=h3;Heading 4=h4;Heading 5=h5;Heading 6=h6;Preformatted=pre;';
     return $settings;
