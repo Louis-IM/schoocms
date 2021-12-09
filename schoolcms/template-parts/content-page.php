@@ -18,8 +18,7 @@
 		</div>
 
 	<?php 
-	if ( ! post_password_required() ) {?>
-	<?php //get_template_part('dynamic-content'); 
+	if ( ! post_password_required() ) {
 	the_dynamic_content('column_content');
 	}?>
 </div>

@@ -19,8 +19,7 @@
 
 
 <?php 
-global $dynamic_content;
-if ( ! post_password_required() ) {
-the_dynamic_content('column_content');
-}?>
+	if ( ! post_password_required() ) {
+	the_dynamic_content('column_content');
+	}?>
 </div>

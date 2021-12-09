@@ -37,7 +37,7 @@
   var $root = $('html, body');
   $('a.bodyAnchor').click(function() {
     $root.animate({
-        scrollTop: $( $.attr(this, 'href') ).offset().top - 40
+        scrollTop: $( $.attr(this, 'href') ).offset().top - 140
     }, 500);
     return false;
   });
