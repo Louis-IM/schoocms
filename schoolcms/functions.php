@@ -614,3 +614,8 @@ add_filter( 'tiny_mce_before_init', 'remove_h1_from_editor' );
 /*Curriculum includes*/
 
 //include_once('inc/curriculum.php');
+//Fix crop thumbnails not appearing on acf options page or term pages
+add_filter('crop_thumbnails_activat_on_adminpages', function($oldValue) {
+	global $pagenow;
+	return $oldValue || $pagenow==='admin.php' || $pagenow==='term.php' ;
+});
