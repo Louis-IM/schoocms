@@ -1,0 +1,169 @@
+/*Landing Page Additions*/
+.style1 {
+	--main-color: 22, 38, 63;
+	--secondary-color: 242, 242, 242;
+}
+.style2 {
+	--main-color: 17, 30, 50;
+	--secondary-color: 242, 242, 242;
+}
+/* img text block*/
+.dynamic-image_text_block,
+.dynamic-two_columns {	
+    position:relative;
+}
+.dynamic-image_text_block > *,
+.dynamic-two_columns > *{	
+	width:100vw;	
+	left: 50%;
+	right: 50%;
+	margin-left: -50vw;
+	margin-right: -50vw;
+}
+.dynamic-image_text_block .container,
+.dynamic-two_columns .container{
+	position:relative;	
+}
+
+.ImgtextBlock {
+    position: relative;
+}
+
+.ImgtextBlock .textBlock {
+    padding: 30px;
+    text-align: left;
+	background:rgba(var(--main-color,144,144,144),0.8);
+	color:rgb(var(--secondary-color,255,255,255))
+}
+.ImgtextBlock .imageBackground {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+}
+
+.ImgtextBlock .textBlock.lightgreyBlock {
+    background: rgba(238, 238, 238, 0.8);
+    color: #000;
+}
+
+@media (min-width: 1590px) {
+    .ImgtextBlock .textBlock {
+        padding:40px 55px 40px 55px;
+    }
+}
+
+/*columns*/
+.dynamic-two_columns .columnrow .col2 {
+    background: #16263f;
+    color: #fff;
+    z-index: 2;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    padding-bottom: 5px;
+    padding-bottom: 30px;
+}
+
+.dynamic-two_columns .columnrow .col2 h2, .dynamic-two_columns .columnrow .col2 h3 {
+    color: #fff;
+}
+
+.dynamic-two_columns .columnrow .col2 a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.dynamic-two_columns .columnrow .col2 .col-bottom-image {
+    margin: 10px -15px -22px;
+}
+
+.dynamic-two_columns .columnrow > div:nth-child(2) {
+    transform: translateX(1px);
+}
+
+.twocol-bg {
+    position: relative;
+    height: 200px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+}
+
+.dynamic-two_columns .twocolbgWrap {
+    position: relative;
+    background: #16263f;
+}
+
+@media (min-width: 768px) {
+    .twocol-bg {
+        position:absolute;
+        left: 0;
+        right: 40%;
+        top: 0;
+        bottom: 0;
+        height: auto;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .dynamic-two_columns .columnrow > div {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+}
+
+@media (min-width: 992px) {
+    .dynamic-two_columns .columnrow {
+        display:flex;
+        background: #fff;
+        position: relative;
+    }
+
+    .dynamic-two_columns.intro-two .columnrow .col2 {
+        margin-top: -250px;
+        position: relative;
+        z-index: 120;
+        padding-top: 20px;
+    }
+
+    .dynamic-two_columns {
+        position: relative;
+    }
+
+    .dynamic-two_columns h3 {
+        max-width: 500px
+    }
+
+    .dynamic-two_columns .columnrow .col2 {
+        /* margin-left: 2px; */
+    }
+}
+
+@media (min-width: 1200px) {
+    .dynamic-two_columns.intro-two .columnrow .col2 {
+        margin-top:-450px;
+    }
+}
+
+@media (min-width: 1390px) {
+    .dynamic-two_columns .columnrow > div {
+        padding-right: 40px;
+    }
+
+    .dynamic-two_columns .columnrow .col2 {
+        padding-left: 40px;
+    }
+
+    .dynamic-two_columns .columnrow .col2 .col-bottom-image {
+        margin: 10px -40px -22px;
+    }
+
+    .dynamic-two_columns.intro-two .columnrow .col2 {
+        margin-top: -450px;
+    }
+}
