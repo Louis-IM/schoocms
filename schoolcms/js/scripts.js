@@ -35,12 +35,13 @@
    });
    //smooth anchor scrolling
   var $root = $('html, body');
-  $('a.bodyAnchor').click(function() {
-    $root.animate({
-        scrollTop: $( $.attr(this, 'href') ).offset().top - 140
-    }, 500);
-    return false;
-  });
+  $(document).on('click', 'a[href^="#"]', function (event) {
+	event.preventDefault();
+
+	$('html, body').animate({
+		scrollTop: $($.attr(this, 'href')).offset().top - 140
+	}, 500);
+	});
   $('body.home').addClass('fixedHome');
   function fixHeader(){
 	var windowHeight = $(window).height();

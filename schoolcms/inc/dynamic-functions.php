@@ -26,6 +26,8 @@ function the_dynamic_content($dynamic_content = 'column_content', $dynamic_style
 	//Set value is_sidebar true if sidebar
 	if($dynamic_style == 'sidebar'){
 		$is_sidebar = true;
+	} else {
+		$is_sidebar = false;
 	}
 	$dynamic_type_class = $dynamic_style.'Dynamic';
 	while ( have_rows($dynamic_content, $content_from) ) : the_row(); ?>	
