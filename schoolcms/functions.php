@@ -148,18 +148,18 @@ add_action( 'init', 'revcon_change_post_object' );
 // SCHOOCMS ADMIN FILTERS
 // **************************************
 // **************************************
-
+/*
 add_filter('admin_footer_text', 'left_admin_footer_text_output'); //left side
 function left_admin_footer_text_output($text) {
-    $text = 'schoocms | designed and built by <a href="https://www.innermedia.co.uk">innermedia</a>';
+    $text = 'schoocms | designed and built by <a href="www.innermedia.co.uk">innermedia</a>';
     return $text;
 }
- 
+
 add_filter('update_footer', 'right_admin_footer_text_output', 11); //right side
 function right_admin_footer_text_output($text) {
     $text = 'powered by <a href="http://www.wordpress.com">wordpress</a>';
     return $text;
-}
+}*/
 // change login image
 add_action("login_head", "my_login_head");
 function my_login_head() {
@@ -176,13 +176,19 @@ function my_login_head() {
 	</style>
 	";
 }
- 
-// Change title for login screen
-add_filter('login_headertext', create_function(false,"return 'SchooCMS by Innermedia';"));
- 
-// change url for login screen
-add_filter('login_headerurl', create_function(false,"return home_url();"));
 
+// Change title for login screen
+/*
+function scms_headertitle(){
+	return 'SchooCMS by Innermedia';
+}
+add_filter('login_headertitle', scms_headertitle());
+function scms_login_headerurl(){
+	return home_url();
+}
+// change url for login screen
+add_filter('login_headerurl', scms_login_headerurl());
+*/
 // disable default dashboard widgets
 function remove_dashboard_widgets() {
 
@@ -324,7 +330,7 @@ function my_mce_before_init_insert_formats( $init_array ) {
 			'block' => 'span',  
 			'classes' => 'blockButton',
 			'wrapper' => true
-		),		
+		),
 	); 
 	// Insert the array, JSON ENCODED, into 'style_formats'
 	$init_array['style_formats'] = json_encode( $style_formats );  
