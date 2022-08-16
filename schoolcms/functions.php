@@ -178,17 +178,10 @@ function my_login_head() {
 }
 
 // Change title for login screen
-/*
-function scms_headertitle(){
-	return 'SchooCMS by Innermedia';
-}
-add_filter('login_headertitle', scms_headertitle());
-function scms_login_headerurl(){
-	return home_url();
-}
+add_filter('login_headertext', function(){return 'SchooCMS by Innermedia';});
 // change url for login screen
-add_filter('login_headerurl', scms_login_headerurl());
-*/
+add_filter('login_headerurl', function(){return home_url();});
+
 // disable default dashboard widgets
 function remove_dashboard_widgets() {
 
