@@ -547,7 +547,9 @@ function rc_add_rel_attribute($link) {
 //Query fields cascading up through ancestors
 function query_ancestors_acf($args,$srcId = null){
 	//needs to be an acf field name ie 'banner_slides'
-	if(!$srcID){
+	global $post;
+	$parent_field_from = '';
+	if(!isset($srcID)){
 		$srcID = $post->ID;
 	}
 	$ancestors = get_post_ancestors($srcID);

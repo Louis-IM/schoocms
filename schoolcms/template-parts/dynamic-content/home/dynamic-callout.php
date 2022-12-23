@@ -19,7 +19,7 @@ if(have_rows('callouts')):?>
 		<div class="coimg">	
 			<picture>
 				<source srcset="<?php echo $image['sizes']['home-banner'];?>" media="(min-width:768px)">
-				<img src="<?php echo $image['sizes']['large-thumbnail-banner'];;?>" alt="<?php the_sub_field('text');?>"/>
+				<img src="<?php echo $image['sizes']['large-thumbnail'];;?>" alt="<?php the_sub_field('text');?>"/>
 			</picture>
 		</div>
 		<?php }?>

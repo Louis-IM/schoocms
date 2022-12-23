@@ -13,6 +13,7 @@ function the_dynamic_content($dynamic_content = 'column_content', $dynamic_style
 	global $post;	
 	global $content_type;
 	global $is_sidebar;
+	$content_from = '';
 	//Set cascade if is sidebar and not explicitly set or if cascade is true
 	if(($dynamic_style == 'sidebar' && $cascade !== false) || $cascade == true){
 		if(have_rows($dynamic_content)){
