@@ -592,11 +592,11 @@ header.mainHeader {
 .admin-bar .headGroup {
 	margin-top:46px
 }
+
+@media (min-width:600px){
 .admin-bar.fixedHeader .headGroup  {
 	margin-top:0;
 }
-@media (min-width:600px){
-
 }
 	
 @media (min-width:768px){

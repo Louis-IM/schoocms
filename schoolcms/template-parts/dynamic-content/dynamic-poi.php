@@ -24,7 +24,7 @@ if(strpos($link['url'],'youtube') || strpos($link['url'],'vimeo')){
 } else {
 	$style = '';
 }
-if(!$thumbnailSize){
+if(!isset($thumbnailSize)){
 	$thumbnailSize = 'large-thumbnail';
 }
 
