@@ -1,0 +1,29 @@
+/*------------------------------------*\
+    ALERT
+\*------------------------------------*/
+.popupAlert {
+  width:100%;
+  max-width:600px;
+}
+
+.noticeBody {
+  width:100%;
+  padding:0 2.5%;
+}
+.popupAlert .popupImg {
+  padding:10px 5px;
+}
+.popupAlert .popupImg img {
+  width:100%
+}
+.popupAlert .noticeText {
+  padding:10px 5px;  
+  width:100%;
+  float:none;
+}
+.popupAlert .noticeText *{
+  max-width:100%;
+}
+.popupAlert .noticeText .popTitle{
+    margin: 0px 0 20px;
+}

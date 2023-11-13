@@ -12,14 +12,13 @@ if( get_sub_field('documents')):		?>
 	<div class="documents">
 		<?php if($section_title):?><h2 class="sectionTitle"><?php echo $section_title;?></h2><?php endif;?>
 		<div class="row  align-items-center">
-		<?php $i=1; foreach( $docs as $doc ):  ?>
+		<?php foreach( $docs as $doc ):  ?>
 			<div class="document <?php echo $docs_col_class ?>">
-					<a class="document-link" href="<?php $docfile = get_field ('document',$doc->ID)  ; echo $docfile['url'] ?>" target="_blank">
-						<?php echo get_the_title( $doc->ID ) ; ?>
-					</a>
-			</div>
-			<?php if($i % 3 == 0 && $total_docs > 3) echo '</div><div class="row">';?>
-		<?php $i++; endforeach; ?>
+				<a class="button document-link" href="<?php $docfile = get_field ('document',$doc->ID)  ; echo $docfile['url'] ?>" target="_blank">
+					<?php echo get_the_title( $doc->ID ) ; ?>
+				</a>
+			</div>			
+		<?php endforeach; ?>
 		</div>
 	</div>
 <?php endif; ?>

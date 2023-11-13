@@ -46,5 +46,27 @@
 </div>
 				
 <?php wp_footer(); ?>
+<?php if(is_user_logged_in()){?>
+	<style type="text/css">		
+	.admin-bar .headGroup,
+	.admin-bar #navbar{
+		margin-top:46px
+	}
+
+	@media (max-width:600px){
+	.admin-bar.fixedHeader .headGroup,
+	.admin-bar.fixedHeader #navbar{
+		margin-top:0;
+	}
+	}
+		
+	@media (min-width:768px){
+		.admin-bar .headGroup,
+		.admin-bar #navbar{
+			margin-top:32px
+		}	
+	}
+	</style>
+<?php }?>
 </body>
 </html>

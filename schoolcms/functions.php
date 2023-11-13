@@ -7,21 +7,17 @@ function schoocms_setup() {
 	add_image_size( 'medium-thumbnail'	, 300, 300, true );
 	add_image_size( 'large-thumbnail'	, 768, 768, true );
   	add_image_size( 'landscape', 1024, 768,true ); 
-  	add_image_size( 'portrait', 768, 1024,true ); 
-	
-	/*Thumbnail, Medium and Large sizes are edited within the media settings*/	
-	
+  	add_image_size( 'portrait', 768, 1024,true ); 	
+	/*Thumbnail, Medium and Large sizes are edited within the media settings*/		
 	/*Edit and add as design sees fit*/
 	add_image_size( 'page-banner'	, 1560, 560, true );
 	add_image_size( 'home-banner'	, 1560, 875, true );	
-
 	// This theme uses wp_nav_menu() in two locations.
 	register_nav_menus( array(
 		'main'    => 'Main Menu',
 		'top'    => 'Top Links',
 		'footer' => 'Footer Links',
 	) );
-
 	/*
 	 * Switch default core markup for search form, comment form, and comments
 	 * to output valid HTML5.
@@ -54,47 +50,45 @@ add_action( 'widgets_init', 'schoocms_widgets_init' );
  */
  function schoocms_required_scripts(){
 	//required scripts. Do not modify
-	wp_enqueue_style( 'bootstrap-style', get_template_directory_uri() . '/css/bootstrap/bootstrap.min.css', '', '5.1.3' );
-	wp_enqueue_style( 'fontawesome', get_template_directory_uri() . '/fonts/fontawesome/css/all.min.css', '', '5.15.3');
+	wp_enqueue_style( 'bootstrap-style', get_template_directory_uri() . '/css/bootstrap/bootstrap.min.css', '', '5.3.0' );
+	wp_enqueue_style( 'fontawesome', get_template_directory_uri() . '/fonts/fontawesome/css/all.min.css', '', '6.4.0');
 	
-	wp_enqueue_script( 'bootstrap-scripts', get_template_directory_uri() . '/js/bootstrap/bootstrap.min.js', array('jquery'), '5.1.3', true );
+	wp_enqueue_script( 'bootstrap-scripts', get_template_directory_uri() . '/js/bootstrap/bootstrap.min.js', array('jquery'), '5.3.0', true );
 	wp_enqueue_script( 'cookie', get_template_directory_uri() . '/js/jquery.cookie.js', array('jquery'), '', true );
 	wp_enqueue_script( 'cycle2', get_template_directory_uri() . '/js/jquery.cycle2.min.js', array('jquery'), '2.1.6', true );
 	wp_enqueue_script( 'owl', get_template_directory_uri() . '/js/owl.carousel.min.js', array('jquery'), '2.3.4', true );
-	wp_enqueue_script( 'fancybox', get_template_directory_uri() . '/js/jquery.fancybox.min.js', array('jquery'), '3.5.7', true );	
+	wp_enqueue_script( 'fancybox', 'https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js', array('jquery'), '', true );	
  }
 add_action( 'wp_enqueue_scripts', 'schoocms_required_scripts' ); 
 function schoocms_required_scripts_defer(){
-	wp_enqueue_style( 'fancybox-style', get_template_directory_uri() . '/css/jquery.fancybox.min.css','', '3.5.7');  
+	wp_enqueue_style( 'fancybox-style', 'https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css','', '');  
 	wp_enqueue_style( 'owl-style', get_template_directory_uri() . '/css/owl.carousel.min.css', '', '2.3.4' );
 }
  add_action( 'get_footer', 'schoocms_required_scripts_defer' ); 
 function schoocms_fonts() {
 	/*Put Font Includes here*/	
 	wp_enqueue_style( 'open-sans', 'https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i&display=swap' );
-	wp_enqueue_style( 'crimson-pro', 'https://fonts.googleapis.com/css?family=Crimson+Pro:400,700&display=swap' );	
-	
+	wp_enqueue_style( 'crimson-pro', 'https://fonts.googleapis.com/css?family=Crimson+Pro:400,700&display=swap' );		
 }
 add_action( 'get_footer', 'schoocms_fonts' );
 
 
 function schoolcms_custom_scripts() {
-	/*Further Scripts and Styles Stylesheet and scripts file set here to overwrite*/	
-	
+	/*Further Scripts and Styles Stylesheet and scripts file set here to overwrite*/		
+	wp_enqueue_style( 'sc-typography', get_template_directory_uri() . '/css/typography.css', '', '5.0' );
+	wp_enqueue_style( 'sc-defaults', get_template_directory_uri() . '/css/default.css', '', '5.0' );
 	wp_enqueue_style( 'sc-style', get_stylesheet_uri() );
 	wp_enqueue_script( 'scripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'), '1', true );
 	
 }
 add_action( 'wp_enqueue_scripts', 'schoolcms_custom_scripts' );
 
-
-/* SCHOOCMS Speed Fixes*/
-include('inc/optimisation.php');
-
-// **************************************
+function my_theme_add_editor_styles() {
+    add_editor_style( get_template_directory_uri() . '/css/typography.css' );
+}
+add_action( 'init', 'my_theme_add_editor_styles' );
 // **************************************
 // SCHOOCMS FUNCTIONS
-// **************************************
 // **************************************
 //No Srcset attachment image
 function wp_get_attachment_image_no_srcset($attachment_id, $size = 'thumbnail', $icon = false, $attr = '') {
@@ -140,26 +134,10 @@ function revcon_change_post_object() {
 add_action( 'admin_menu', 'revcon_change_post_label' );
 add_action( 'init', 'revcon_change_post_object' );
 
-
-
-
-// **************************************
 // **************************************
 // SCHOOCMS ADMIN FILTERS
 // **************************************
-// **************************************
-/*
-add_filter('admin_footer_text', 'left_admin_footer_text_output'); //left side
-function left_admin_footer_text_output($text) {
-    $text = 'schoocms | designed and built by <a href="www.innermedia.co.uk">innermedia</a>';
-    return $text;
-}
 
-add_filter('update_footer', 'right_admin_footer_text_output', 11); //right side
-function right_admin_footer_text_output($text) {
-    $text = 'powered by <a href="http://www.wordpress.com">wordpress</a>';
-    return $text;
-}*/
 // change login image
 add_action("login_head", "my_login_head");
 function my_login_head() {
@@ -254,8 +232,7 @@ add_filter('excerpt_more', 'html5_blank_view_article');
 // filter_hook function to react on sub_menu flag
 function my_wp_nav_menu_objects_sub_menu( $sorted_menu_items, $args ) {
   if ( isset( $args->sub_menu ) ) {
-    $root_id = 0;
-    
+    $root_id = 0;    
     // find the current menu item
     foreach ( $sorted_menu_items as $menu_item ) {
       if ( $menu_item->current ) {
@@ -299,8 +276,86 @@ function my_wp_nav_menu_objects_sub_menu( $sorted_menu_items, $args ) {
     return $sorted_menu_items;
   }
 }
-// add hook
 add_filter( 'wp_nav_menu_objects', 'my_wp_nav_menu_objects_sub_menu', 10, 2 );
+
+//Nav Walker Add Toggle.
+class nav_arrow_walker extends Walker_Nav_Menu {
+	function start_el(&$output, $item, $depth=0, $args=[], $id=0) {
+		if(is_array($item->classes)){
+			if((in_array('menu-item-has-children',$item->classes) && in_array('current-menu-ancestor',$item->classes)) || (in_array('menu-item-has-children',$item->classes) && in_array('current-menu-item',$item->classes))){
+				$item->classes[] = 'open';
+				$item->classes[] = 'toggleable';
+			} else {
+				$item->classes[] = 'toggleable';		
+			}
+		} else {
+			$item->classes = array();
+		}
+		$output .= "<li class='" .  implode(" ", $item->classes) . "'>"; 
+		$output .= $args->after;
+		$output .= '<a href="' . $item->url . '">';
+		$output .= $args->link_before . $item->title . $args->link_after;
+		$output .= '</a>';
+		$output .= $args->after;
+		if ($args->walker->has_children) {
+			$output .= '<span class="arrow toggleItem"></span>';
+		}
+	}
+}
+class mobile_nav_walker extends Walker_Nav_Menu {
+	private $parent_title = '';
+	function start_el(&$output, $item, $depth=0, $args=[], $id=0) {
+		
+		if((in_array('menu-item-has-children',$item->classes) && in_array('current-menu-ancestor',$item->classes)) || (in_array('menu-item-has-children',$item->classes) && in_array('current-menu-item',$item->classes))){
+			$item->classes[] = 'open';
+			$item->classes[] = 'toggleable';
+		} else {
+			$item->classes[] = 'toggleable';			
+		}
+		
+		$output .= "<li class='" .  implode(" ", $item->classes) . "'>";
+		$output .= $args->after;		
+		if ($args->walker->has_children) {
+			$output .= '<a href="' . $item->url . '" class="toggleItem">';
+		} else {
+			$output .= '<a href="' . $item->url . '">';
+		}		
+		$output .= $args->link_before . $item->title . $args->link_after;
+		$output .= '</a>';		
+		$output .= $args->after;
+		$parentclasses = str_replace('menu-item-has-children','submenu_parent', implode(" ", $item->classes));
+		$this->$parent_title = '<li class="' .  $parentclasses . '"><a href="' . $item->url . '">'.$item->title.'</a></li>';
+	}
+	public function start_lvl( &$output, $depth = 0, $args = null ) {
+		if ( isset( $args->item_spacing ) && 'discard' === $args->item_spacing ) {
+			$t = '';
+			$n = '';
+		} else {
+			$t = "\t";
+			$n = "\n";
+		}
+		$indent = str_repeat( $t, $depth );
+
+		// Default class.
+		$classes = array( 'sub-menu' );
+		
+		/**
+		 * Filters the CSS class(es) applied to a menu list element.
+		 *
+		 * @since 4.8.0
+		 *
+		 * @param string[] $classes Array of the CSS classes that are applied to the menu `<ul>` element.
+		 * @param stdClass $args    An object of `wp_nav_menu()` arguments.
+		 * @param int      $depth   Depth of menu item. Used for padding.
+		 */
+		$class_names = implode( ' ', apply_filters( 'nav_menu_submenu_css_class', $classes, $args, $depth ) );
+		$class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
+
+		$output .= "{$n}{$indent}<ul$class_names>{$n}";
+		$output .= $this->$parent_title;
+		$this->$parent_titlee = '';
+	}
+}
 
 
 // TinyMCE styles...
@@ -335,192 +390,19 @@ function my_mce_before_init_insert_formats( $init_array ) {
 // Attach callback to 'tiny_mce_before_init' 
 add_filter( 'tiny_mce_before_init', 'my_mce_before_init_insert_formats' );  
 
-/*SchooCMS Custom Post Types*/
 
-add_action('init', 'cptui_register_my_cpt_call_outs');
-function cptui_register_my_cpt_call_outs() {
-register_post_type('call_outs', array(
-'label' => 'Call Outs',
-'description' => '',
-'public' => false,
-'show_ui' => true,
-'show_in_menu' => true,
-'capability_type' => 'post',
-'map_meta_cap' => true,
-'hierarchical' => true,
-'rewrite' => array('slug' => 'call_outs', 'with_front' => true),
-'query_var' => true,
-'has_archive' => true,
-'supports' => array('title','thumbnail'),
-'labels' => array (
-  'name' => 'Call Outs',
-  'singular_name' => 'Call Out',
-  'menu_name' => 'Call Outs',
-  'add_new' => 'Add Call Out',
-  'add_new_item' => 'Add New Call Out',
-  'edit' => 'Edit',
-  'edit_item' => 'Edit Call Out',
-  'new_item' => 'New Call Out',
-  'view' => 'View Call Out',
-  'view_item' => 'View Call Out',
-  'search_items' => 'Search Call Outs',
-  'not_found' => 'No Call Outs Found',
-  'not_found_in_trash' => 'No Call Outs Found in Trash',
-  'parent' => 'Parent Call Out',
-)
-) ); 
-}
-add_action('init', 'cptui_register_my_cpt_quote');
-function cptui_register_my_cpt_quote() {
-register_post_type('quote', array(
-'label' => 'Quotes',
-'description' => '',
-'public' => false,
-'show_ui' => true,
-'show_in_menu' => true,
-'capability_type' => 'post',
-'map_meta_cap' => true,
-'hierarchical' => true,
-'rewrite' => array('slug' => 'quote', 'with_front' => true),
-'query_var' => true,
-'has_archive' => true,
-'exclude_from_search' => true,
-'menu_position' => '50',
-'supports' => array('title','editor'),
-'labels' => array (
-  'name' => 'Quotes',
-  'singular_name' => 'Quote',
-  'menu_name' => 'Quotes',
-  'add_new' => 'Add Quote',
-  'add_new_item' => 'Add New Quote',
-  'edit' => 'Edit',
-  'edit_item' => 'Edit Quote',
-  'new_item' => 'New Quote',
-  'view' => 'View Quote',
-  'view_item' => 'View Quote',
-  'search_items' => 'Search Quotes',
-  'not_found' => 'No Quotes Found',
-  'not_found_in_trash' => 'No Quotes Found in Trash',
-  'parent' => 'Parent Quote',
-)
-) ); }
-
-
-add_action('init', 'cptui_register_my_cpt_staff');
-function cptui_register_my_cpt_staff() {
-register_post_type('staff', array(
-'label' => 'Staff',
-'description' => '',
-'public' => true,
-'show_ui' => true,
-'show_in_menu' => true,
-'capability_type' => 'post',
-'map_meta_cap' => true,
-'hierarchical' => false,
-'rewrite' => array('slug' => 'staff', 'with_front' => true),
-'query_var' => true,
-'has_archive' => false,
-'supports' => array('title','editor','thumbnail','page-attributes'),
-'labels' => array (
-  'name' => 'Staff',
-  'singular_name' => 'Staff Member',
-  'menu_name' => 'Staff',
-  'add_new' => 'Add Staff Member',
-  'add_new_item' => 'Add New Staff Member',
-  'edit' => 'Edit',
-  'edit_item' => 'Edit Staff Member',
-  'new_item' => 'New Staff Member',
-  'view' => 'View Staff Member',
-  'view_item' => 'View Staff Member',
-  'search_items' => 'Search Staff',
-  'not_found' => 'No Staff Found',
-  'not_found_in_trash' => 'No Staff Found in Trash',
-  'parent' => 'Parent Staff Member',
-)
-) ); }
-
-
-
-add_action('init', 'cptui_register_my_cpt_documents');
-function cptui_register_my_cpt_documents() {
-register_post_type('documents', array(
-'label' => 'Documents',
-'description' => '',
-'public' => false,
-'show_ui' => true,
-'show_in_menu' => true,
-'capability_type' => 'post',
-'map_meta_cap' => true,
-'hierarchical' => true,
-'rewrite' => array('slug' => 'documents', 'with_front' => true),
-'query_var' => true,
-'has_archive' => true,
-'supports' => array('title'),
-'labels' => array (
-  'name' => 'Documents',
-  'singular_name' => 'Document',
-  'menu_name' => 'Documents',
-  'add_new' => 'Add Document',
-  'add_new_item' => 'Add New Document',
-  'edit' => 'Edit',
-  'edit_item' => 'Edit Document',
-  'new_item' => 'New Document',
-  'view' => 'View Document',
-  'view_item' => 'View Document',
-  'search_items' => 'Search Documents',
-  'not_found' => 'No Documents Found',
-  'not_found_in_trash' => 'No Documents Found in Trash',
-  'parent' => 'Parent Document',
-)
-) ); }
-
-add_action('init', 'cptui_register_my_cpt_poi_banners');
-function cptui_register_my_cpt_poi_banners() {
-register_post_type('poi_banners', array(
-'label' => 'Points of Interest',
-'description' => '',
-'public' => false,
-'show_ui' => true,
-'show_in_menu' => true,
-'capability_type' => 'post',
-'map_meta_cap' => true,
-'hierarchical' => true,
-'rewrite' => array('slug' => 'poi_banners', 'with_front' => true),
-'query_var' => true,
-'has_archive' => true,
-'supports' => array('title','thumbnail'),
-'labels' => array (
-  'name' => 'Points of Interest',
-  'singular_name' => 'POI',
-  'menu_name' => 'Points of Interest',
-  'add_new' => 'Add POI',
-  'add_new_item' => 'Add New POI',
-  'edit' => 'Edit',
-  'edit_item' => 'Edit POI',
-  'new_item' => 'New POI',
-  'view' => 'View POI',
-  'view_item' => 'View POI',
-  'search_items' => 'Search POIs',
-  'not_found' => 'No POIs Found',
-  'not_found_in_trash' => 'No POIs Found in Trash',
-  'parent' => 'Parent POI',
-)
-) ); }
-
-
+include_once('inc/post_types.php');
 include_once('inc/custom-fields.php');
+include_once('inc/content-partials.php');
 
 /*End Custom Fields*/
 
 include_once('inc/schoocms_options.php');
-
 include_once('inc/shortcodes.php');
-
 include_once('inc/alerts.php');
+include_once('inc/curriculum.php');
 
 //columns
-
-
 function my_gallery_default_type_set_link( $settings ) {
     $settings['galleryDefaults']['link'] = 'file';
     return $settings;
@@ -548,9 +430,13 @@ function rc_add_rel_attribute($link) {
 function query_ancestors_acf($args,$srcId = null){
 	//needs to be an acf field name ie 'banner_slides'
 	global $post;
-	$parent_field_from = '';
+	$parent_field_from = false;
 	if(!isset($srcID)){
-		$srcID = $post->ID;
+		if(isset($post)){
+			$srcID = $post->ID;
+		} else {
+			$srcID = '';
+		}		
 	}
 	$ancestors = get_post_ancestors($srcID);
 	if($ancestors){
@@ -586,25 +472,10 @@ function right_column_classes($xtraclass=null){
 	return $return;
 }
 
-/**
-* Change WPForms capability requirement.
-*
-* @param string $cap
-* @return string
-*/
-function wpforms_custom_capability( $cap ) {
 
-	// unfiltered_html by default means Editors and up.
-	// See more about WordPress roles and capabilities
-	// https://codex.wordpress.org/Roles_and_Capabilities
-	return 'unfiltered_html';
-}
-add_filter( 'wpforms_manage_cap', 'wpforms_custom_capability' );
 
-function wpf_dev_email_display_other_fields( $fields ) { 
-    return array( 'divider');
-} 
-add_filter( 'wpforms_email_display_other_fields', 'wpf_dev_email_display_other_fields', 10, 1 );
+include_once('inc/wpforms_customs.php');
+
 
 function remove_h1_from_editor( $settings ) {
     $settings['block_formats'] = 'Paragraph=p;Heading 2=h2;Heading 3=h3;Heading 4=h4;Heading 5=h5;Heading 6=h6;Preformatted=pre;';
@@ -612,11 +483,24 @@ function remove_h1_from_editor( $settings ) {
 }
 add_filter( 'tiny_mce_before_init', 'remove_h1_from_editor' );
 
-/*Curriculum includes*/
 
-//include_once('inc/curriculum.php');
 //Fix crop thumbnails not appearing on acf options page or term pages
 add_filter('crop_thumbnails_activat_on_adminpages', function($oldValue) {
 	global $pagenow;
 	return $oldValue || $pagenow==='admin.php' || $pagenow==='term.php' ;
 });
+add_action( 'the_content', 'wpse_260756_the_content', 10, 1 );
+function wpse_260756_the_content( $content ) {
+  $pattern = "/<table(.*?)>(.*?)<\/table>/i";
+  $replacement = '<div class="table-responsive"><table$1>$2</table></div>';
+
+  return preg_replace( $pattern, $replacement, $content );
+}
+add_filter( 'embed_oembed_html', 'wrap_oembed_html', 99, 4 );
+
+function wrap_oembed_html( $cached_html, $url, $attr, $post_id ) {
+	if ( false !== strpos( $url, "youtube.com") || false !== strpos( $url, "youtu.be" ) || false !== strpos( $url, "vimeo.com" )) {
+		$cached_html = '<div class="embed-container">' . $cached_html . '</div>';
+	}
+	return $cached_html;
+}

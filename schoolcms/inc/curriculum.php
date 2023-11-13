@@ -38,7 +38,7 @@ function get_curriculum_blocks($rowcount = 3){
 					<div class="tile-bg" style="background-image: url('<?php echo $previewimage; ?>');"></div>								
 					<div class="overlay-hint"></div>
 					<div class="cover">
-						<h2 class="title"><?php echo $title; ?></h2>
+						<div class="title"><?php echo $title; ?></div>
 						<div class="button-wrap">
 							<div class="toggle-subject"></div>
 						</div>

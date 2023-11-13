@@ -1,8 +1,8 @@
 <?php get_header(); ?>
-<?php get_template_part('template-parts/banner','page'); ?>		
+<?php get_template_part('template-parts/banner'); ?>		
 <div class="container body-container">	
 	<div class="row">
-		<div class="<?php echo main_column_classes();?>">		
+		<main class="<?php echo main_column_classes();?>">		
 		<!-- breadcrumbs -->	
 		<div class="breadcrumbs">
 			<?php if(function_exists('bcn_display')) {	bcn_display();	} ?>	
@@ -14,7 +14,7 @@
 
 			endwhile; // End of the loop.?>
 
-		</div>
+		</main>
 		<div class="<?php echo left_column_classes();?>">		
 			<?php get_template_part('template-parts/sidebar/sidebar');?>
 		</div>

@@ -1,11 +1,8 @@
-<?php if(get_sub_field('points_of_interest')):
+<?php if(get_sub_field('points_of_interest')){
 global $is_sidebar;
-?>
-
-<div class="row pois">
-<?php $posts = get_sub_field('points_of_interest'); ?>		
-<?php foreach( $posts as $post ):  
-setup_postdata($post);
+$posts = get_sub_field('points_of_interest');?>
+<div class="row pois <?php if(count($posts) > 1){echo 'carouselSwitch';}?>">
+<?php 
 if($is_sidebar){
 	$post_col = "col-12";
 } else {
@@ -15,60 +12,23 @@ if($is_sidebar){
 		$post_col = "col";
 	}						
 }
-//Perform setting checks
-$link = get_field('link',$post);
-$text = ( get_field('text',$post) )? get_field('text',$post) : get_the_title($post);
-/* Check if link is a youtube or vimeo link */
-if(strpos($link['url'],'youtube') || strpos($link['url'],'vimeo')){
-	$style = 'vidBlock';
-} else {
-	$style = '';
-}
-if(!isset($thumbnailSize)){
-	$thumbnailSize = 'large-thumbnail';
-}
-
-?>
+foreach( $posts as $post ){?>
 <div class="<?php echo $post_col;?>">		
-	<a href="<?php echo $link['url']?>" target="<?php echo $link['target'];?>" class="poi <?php echo $style;?>" <?php if(get_field('open_in_lightbox',$post)){ echo 'data-fancybox';}?>>
-		<?php //output different pois depending on whether poi has a thumbnail
-		if(get_the_post_thumbnail_url($post)):?>
-			<div class="poiImage">
-				<div class="poiImageBG">
-				<?php echo get_the_post_thumbnail($post, $thumbnailSize ) ?>
-				</div>
-					<div class="poiText">				
-						<div class="poiTitle">
-							<?php echo $text ?>
-						</div>	
-						<?php if(get_field('further_text')):?>
-							<div class="poiEx">							
-								<?php the_field('further_text');?>
-							</div>
-						<?php endif;?>
-					</div>
-			</div>
-		<?php else:?>
-		
-			<div class="textOnlyBlock <?php if($icon){echo 'hasicon';}?>">
-				 
-				<div class="poiText">
-					<div class="poiTitle">					
-						<?php echo $text ?>
-					</div>
-					<?php if(get_field('further_text')):?>
-						<div class="poiEx">							
-							<?php the_field('further_text');?>
-						</div>
-					<?php endif;?>
-				</div>
-				
-			</div>
-		<?php endif;?>
-	</a>
+	<?php if($post->post_type == 'poi_banners'){
+	scms_linked_poi();
+	} else {
+		$args = array(
+			'link'=> $post['link'],
+			'text'=>$post['text'],
+			'lightbox'=>$post['open_in_lightbox'],
+			'image_id'=>$post['image']['id'],
+			'further_text'=>$post['further_text'],
+		);
+		get_the_poi($args);
+	}
+	?>
 </div>
-<?php endforeach; ?>
+<?php } ?>
 </div>
-
-			<?php wp_reset_postdata();
-			endif; ?>
+<?php wp_reset_postdata();
+} ?>

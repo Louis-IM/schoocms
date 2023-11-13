@@ -22,12 +22,12 @@ $section_title = get_sub_field('section_title'); ?>
 					<div class="singleQuote">
 						<blockquote class="quote-text">
 							<?php echo $quote['quote']; ?>
-						</blockquote>
-						<?php if( $quote['cite'] != ''):?>
-						<div class="quote-cite">
-							<?php echo  $quote['cite']  ?>	
-						</div>
-						<?php endif;?>
+							<?php if( $quote['cite'] != ''):?>
+							<cite class="quote-cite">
+								<?php echo  $quote['cite']  ?>	
+							</cite>
+							<?php endif;?>
+						</blockquote>						
 					</div>
 				<?php endforeach; ?>
 					<?php if(1 < count($quotes)):?>

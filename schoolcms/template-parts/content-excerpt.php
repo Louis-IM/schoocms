@@ -1,4 +1,4 @@
-<div class="list-item">	
+<article class="list-item">	
 	<div class="row">
 		<div class="list-item-image col-3 col-lg-2">
 			<a href="<?php echo the_permalink() ?>">
@@ -6,13 +6,15 @@
 			</a>
 		</div>
 		<div class="list-item-text col-9 col-lg-10">
-			<h2 class="list-item-title">
-				<a href="<?php echo the_permalink() ?>"><?php the_title() ?></a>
-			</h2>
+			<header>
+				<h2 class="list-item-title">
+					<a href="<?php echo the_permalink() ?>"><?php the_title() ?></a>
+				</h2>
+				<time class="date" datetime="<?php the_time('Y-M-D');?>"><a href="<?php echo the_permalink() ?>"><span><?php the_time('jS F Y');?></span></a></time>
+			</header>
 			<div class="list-item-excerpt">
-			<p class="date"><a href="<?php echo the_permalink() ?>"><span><?php the_time('jS F Y');?></span></a></p>
 				<?php the_excerpt() ?>
 			</div>
 		</div>
 	</div>
-</div>
+</article>

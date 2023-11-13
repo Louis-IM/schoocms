@@ -258,19 +258,39 @@ function hook_alert(){
 				</div>
 			</div> 
 		</div>
+		<link rel='stylesheet' id='sc-alert-css' href='<?php echo get_template_directory_uri();?>/css/alert.css' type='text/css' media='all' />
 		<script type="text/javascript">
 			// alert
 			
 			<?php if(get_field('alert_status','custom_alert') == 'Test' && is_user_logged_in()):?>
 				jQuery(document).ready(function($){
-						setTimeout(function(){$("a#trig").click();},1000);
+					setTimeout(function(){							
+							Fancybox.show([{
+								src : '#notice',
+								type: 'inline',								
+							}],
+							{
+								mainClass : 'lightboxItem',
+								dragToClose : false,
+								autoFocus : false,
+							}
+							);
+					},1000);
 				});
 			<?php else:
 			$noVar = get_field('frequency','custom_alert');
 			?>
 				jQuery(document).ready(function($){
 					if(jQuery.cookie("schooAlert<?php echo $noVar;?>") != 'true') {
-						setTimeout(function(){jQuery("a#trig").click();},1000);
+						setTimeout(function(){							
+								Fancybox.show([{
+									src : '#notice',
+									type: 'inline',
+									mainClass : 'lightboxItem',
+									dragToClose : false,
+									autoFocus : false,
+								}]);
+						},1000);
 						jQuery.cookie("schooAlert<?php echo $noVar;?>", "true", { path: '/', <?php if($noVar != 'session'){?>expires: <?php if($noVar) echo $noVar; else echo '1';}?> }); 
 					}
 				})

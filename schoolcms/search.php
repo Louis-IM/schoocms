@@ -1,12 +1,8 @@
 <?php get_header();?>
-<?php get_template_part('template-parts/banner','page'); ?>
-
+<?php get_template_part('template-parts/banner','default'); ?>
 <div class="container body-container">
 	<div class="row">
-	
-
 		<div class="bodyContent col-12">		
-
 			<!-- breadcrumbs -->	
 			<div class="breadcrumbs">
 				<?php if(function_exists('bcn_display')) {	bcn_display();	} ?>
@@ -24,10 +20,14 @@
 				
 			<?	endwhile;
 				the_posts_pagination();
-			else :
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif; ?>
+			else :?>
+			<h1 class="entry-title"><?php printf( __( 'Search Results for: %s', 'twentythirteen' ), get_search_query() ); ?></h1>	
+			
+			<div class="well">
+               <?php get_search_form(); ?>
+            </div><!--/.well -->
+			<p>No results found for "<?php echo get_search_query();?>"</p>
+		<?php endif; ?>
 
 		</div>
 		

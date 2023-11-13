@@ -1,4 +1,4 @@
-<div class="bodyContent">
+<main class="bodyContent">
 <!-- page title -->
 <h1 class="entry-title"><?php the_title(); ?></h1>
 
@@ -22,4 +22,4 @@
 	if ( ! post_password_required() ) {
 	the_dynamic_content('column_content');
 	}?>
-</div>
+</main>

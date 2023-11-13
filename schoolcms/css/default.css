@@ -1,0 +1,131 @@
+/*Default Styles*/
+.wrapper {
+	position:relative;
+	overflow:hidden;
+}
+.clear:before,
+.clear:after {
+    content:' ';
+    display:table;
+}
+.clear:after {
+    clear:both;
+}
+ul.socials {
+	display:flex;
+	vertical-align:top;
+	list-style:none;
+	margin:0;
+}
+ul.socials li{
+	display:inline-block;
+	position:relative;	
+    padding: 0 5px;
+    min-width: 30px;
+	text-align:center;
+}
+.body-container {
+	margin-top:20px;
+}
+.bodyContent {
+	margin-bottom:40px;
+}
+body.menuopen {
+	overflow:hidden;
+}
+
+ul.menu,
+ul.menu ul {
+	list-style:none;
+	padding:0;
+	margin:0;
+}
+
+.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto; }
+.embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+.row.owl-carousel {
+	--bs-gutter-x: 0px;
+}
+.row.owl-carousel > *{
+	width:100%!important;
+}
+/*Banner*/
+#pageBanner .hero,
+#homeBanner .hero,
+.bannerWrap .hero {
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+}
+#pageBanner .videoframe,
+#homeBanner .videoframe,
+.bannerWrap .videoframe {
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+}
+.videoframe video,
+.videoframe iframe{
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	object-fit:cover;
+}
+.hero .slide {
+	width:100%;
+	overflow:hidden;
+	height:100%;
+	position:relative;
+}	
+.hero .bannerImage{
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	object-fit:cover;
+}
+.hero .slide .slideImage {
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+}
+
+/*------------------------------------*\
+    Dynamic Content
+\*------------------------------------*/
+/** Text **/
+
+/**** Image ****/
+.image-item{
+    position: relative;
+}
+.image-item img{
+	width:100%;
+	height:auto;
+}
+.image-item .imageItemCaption {
+	margin:0.5rem;
+}
+/*******FAQS*****/
+.faq .faq-answer{
+	display:none;
+	padding:10px;
+}
+.faq.open .faq-answer{
+	display:block;
+}
+/** Quote **/
+.quoteContainer .singleQuote  {
+	width:100%;
+	position:relative;
+}

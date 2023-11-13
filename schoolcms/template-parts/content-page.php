@@ -1,24 +1,22 @@
-<div class="bodyContent">
-	<!-- page title -->
-	<h1 class="entry-title"><?php the_title(); ?></h1>
-
-	<?php if(has_post_thumbnail()):?>
-	<div class="postThumb">
-		<?php the_post_thumbnail('landscape'); ?>
-	</div>
-	<?php endif;?>
+<article class="bodyContent">
+	<header>
+		<h1><?php the_title(); ?></h1>
+		<?php if(has_post_thumbnail()):?>
+		<div class="postThumb">
+			<?php the_post_thumbnail('landscape'); ?>
+		</div>
+		<?php endif;?>
+	</header>
 	<!-- main content -->
-	<?php $raw_content = get_the_content(); 
-	?>
-		<div class="row body-text">
+	<div class="body-text">
+		<div class="row">
 			<div class="col-md">
 				<?php the_content(); ?>
-				<?php wp_link_pages(); ?>
 			</div>
 		</div>
-
+	</div>
 	<?php 
 	if ( ! post_password_required() ) {
 	the_dynamic_content('column_content');
 	}?>
-</div>
+</article>
