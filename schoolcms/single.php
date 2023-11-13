@@ -1,36 +1,20 @@
-<?php get_header(); ?>
-
-<?php get_template_part('template-parts/banner','page'); ?>		
-
+<?php get_header(); 
+$post_type = get_post_type( $post->ID );
+get_template_part('template-parts/banner',$post_type); ?>
 <div class="container body-container">
-<div class="row">
-
-		<div class="<?php echo main_column_classes();?>">		
-		<!-- breadcrumbs -->	
-		<div class="breadcrumbs">
-			<?php if(function_exists('bcn_display')) {	bcn_display();	} ?>
-			
-			
-		</div>
+	<div class="row">
+		<div class="<?php echo main_column_classes();?>">	
+			<div class="breadcrumbs">
+				<?php if(function_exists('bcn_display')) {	bcn_display();	} ?>
+			</div>
 			<?php while ( have_posts() ) :
-				the_post();
-				$post_type = get_post_type( $post_id );
+				the_post();				
 				get_template_part( 'template-parts/content', $post_type );
-
-
 			endwhile; // End of the loop.?>
-
-		</div>
-		
+		</div>		
 		<div class="<?php echo left_column_classes();?>">			
-			<?php get_template_part('template-parts/sidebar/sidebar',$post_type);?>
-		
-		</div>
-		
+			<?php get_template_part('template-parts/sidebar/sidebar',$post_type);?>		
+		</div>		
 	</div>
-
-</div> <!-- /container -->
-
-
-
+</div>
 <?php get_footer(); ?>

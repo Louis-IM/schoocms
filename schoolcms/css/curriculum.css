@@ -53,8 +53,8 @@
 }
 .subject-tile .cover .button-wrap .toggle-subject:before{
 	content: "\f067";    
-	font-weight:900;
-	font-family: 'FontAwesome';
+	font-weight:900;	
+    font-family: "Font Awesome 6 Free";
     display: inline-block;
     vertical-align: top;
 	position:absolute;
@@ -73,11 +73,11 @@
 	opacity:0.3;
 }
 
-.subject-tile .cover h2{
-	    color: #fff;
+.subject-tile .cover .title{
+	color: #fff;
     text-align: center;
     font-size: 24px;
-    margin: 20px 0;;
+    margin: 20px 0;
     line-height: 1.3;
 }
 .subject-tile:before {
@@ -118,8 +118,8 @@
 }
 #subject-tiles .subject-block .subject-close:before{
 content: "\f00d";    
-	font-weight:900;
-	font-family: 'FontAwesome';
+	font-weight:900;	
+    font-family: "Font Awesome 6 Free";
     display: inline-block;
     vertical-align: top;
 	position:absolute;
