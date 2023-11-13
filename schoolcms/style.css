@@ -313,7 +313,7 @@ a.readmore:hover {
 	overflow:hidden;
 	font-size:14px;
 }
-.searchform input#s{
+.searchform input.s{
     border: 0;
     font-size:16px;
 	height:30px;
@@ -323,16 +323,16 @@ a.readmore:hover {
 	padding: 4px 10px;
 	border-bottom:solid 1px;
 }
-.sidebar .searchform input#s{
+.sidebar .searchform input.s{
 	padding: 7px 10px;
 }
-.sidebar #searchSubmit {
+.sidebar .searchSubmit {
 	top:3px;
 }
-.searchform input#s:focus{
+.searchform input.s:focus{
 	outline:0;
 }
-#searchSubmit{
+.searchSubmit{
     background: transparent;
     border: 0;
     text-transform: uppercase;
@@ -394,7 +394,7 @@ a.readmore:hover {
   text-transform:uppercase;
   opacity: 1; 
 }
-.headerSearch .searchform input#s{
+.headerSearch .searchform input.s{
 	border-bottom:none;
 }
 }
@@ -622,10 +622,10 @@ header.mainHeader {
 	.fixedHome .headGroup .socials li:last-child:after{
 		background:#fff;
 	}
-	.fixedHome .headGroup .searchform input#s {
+	.fixedHome .headGroup .searchform input.s {
 		color:#fff;
 	}
-	.fixedHome .headGroup .searchform input#s {
+	.fixedHome .headGroup .searchform input.s {
 		
 	}
 	.fixedHome .headerSearch .searchform  ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
@@ -639,7 +639,7 @@ header.mainHeader {
 	.fixedHome .headerSearch .searchform  ::-ms-input-placeholder { /* Microsoft Edge */
 		  color: #fff;
 	}
-	.fixedHome .headGroup #searchSubmit {
+	.fixedHome .headGroup .searchSubmit {
 		color:#fff;
 	}
 	.fixedHome .headerIcon {
