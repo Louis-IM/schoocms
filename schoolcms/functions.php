@@ -64,13 +64,13 @@ function schoocms_required_scripts_defer(){
 	wp_enqueue_style( 'fancybox-style', 'https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css','', '');  
 	wp_enqueue_style( 'owl-style', get_template_directory_uri() . '/css/owl.carousel.min.css', '', '2.3.4' );
 }
- add_action( 'get_footer', 'schoocms_required_scripts_defer' ); 
+ add_action( 'wp_enqueue_scripts', 'schoocms_required_scripts_defer' ); 
 function schoocms_fonts() {
 	/*Put Font Includes here*/	
 	wp_enqueue_style( 'open-sans', 'https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i&display=swap' );
 	wp_enqueue_style( 'crimson-pro', 'https://fonts.googleapis.com/css?family=Crimson+Pro:400,700&display=swap' );		
 }
-add_action( 'get_footer', 'schoocms_fonts' );
+add_action( 'wp_enqueue_scripts', 'schoocms_fonts' );
 
 
 function schoolcms_custom_scripts() {
@@ -450,8 +450,6 @@ function query_ancestors_acf($args,$srcId = null){
 	return $parent_field_from;
 }
 
-
-
 /*Include Dynamic Content functions*/
 include_once('inc/dynamic-functions.php');
 
@@ -459,24 +457,18 @@ include_once('inc/dynamic-functions.php');
 
 /*MainBody clases to be used across site*/
 function main_column_classes($xtraclass=null){
-	$return = 'col-lg-8 col-md-7 order-md-2'.$xtraclass;
+	$return = 'col-lg-8 col-md-7 order-md-2 '.$xtraclass;
 	return $return;
 }
 function left_column_classes($xtraclass=null){
-	$return = 'col-lg-4 col-md-5 order-md-1'.$xtraclass;
+	$return = 'col-lg-4 col-md-5 order-md-1 '.$xtraclass;
 	return $return;
 }
-
 function right_column_classes($xtraclass=null){	
-	$return = 'col-lg-4 col-md-5 order-md-3'.$xtraclass;
+	$return = 'col-lg-4 col-md-5 order-md-3 '.$xtraclass;
 	return $return;
 }
-
-
-
 include_once('inc/wpforms_customs.php');
-
-
 function remove_h1_from_editor( $settings ) {
     $settings['block_formats'] = 'Paragraph=p;Heading 2=h2;Heading 3=h3;Heading 4=h4;Heading 5=h5;Heading 6=h6;Preformatted=pre;';
     return $settings;
@@ -504,3 +496,31 @@ function wrap_oembed_html( $cached_html, $url, $attr, $post_id ) {
 	}
 	return $cached_html;
 }
+function insert_admin_fixeditem_fix_in_footer(){
+	if(is_user_logged_in()){?>
+	<style type="text/css">		
+	.admin-bar .headGroup,
+	.admin-bar .fixedItem,
+	.admin-bar #navbar{
+		margin-top:46px
+	}
+
+	@media (max-width:600px){
+	.admin-bar.fixedHeader .headGroup,
+	.admin-bar.fixedHeader .fixedItem,
+	.admin-bar.fixedHeader #navbar{
+		margin-top:0;
+	}
+	}
+		
+	@media (min-width:768px){
+		.admin-bar .headGroup,
+		.admin-bar .fixedItem,
+		.admin-bar #navbar{
+			margin-top:32px
+		}	
+	}
+	</style>
+<?php }
+}
+ add_action( 'get_footer', 'insert_admin_fixeditem_fix_in_footer' ); 
