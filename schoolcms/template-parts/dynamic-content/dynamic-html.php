@@ -2,7 +2,7 @@
 <div class="body-text">
 	<div class="row">
 		<div class="col-md">
-			<?php the_sub_field('html') ?>
+			<?php echo get_sub_field('html') ?>
 		</div>
 	</div>
 </div>

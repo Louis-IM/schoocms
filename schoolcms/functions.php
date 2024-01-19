@@ -292,7 +292,7 @@ class nav_arrow_walker extends Walker_Nav_Menu {
 			$item->classes = array();
 		}
 		$output .= "<li class='" .  implode(" ", $item->classes) . "'>"; 
-		$output .= $args->after;
+		$output .= $args->before;
 		$output .= '<a href="' . $item->url . '">';
 		$output .= $args->link_before . $item->title . $args->link_after;
 		$output .= '</a>';
@@ -303,7 +303,7 @@ class nav_arrow_walker extends Walker_Nav_Menu {
 	}
 }
 class mobile_nav_walker extends Walker_Nav_Menu {
-	private $parent_title = '';
+	private $parent_title = false;
 	function start_el(&$output, $item, $depth=0, $args=[], $id=0) {
 		
 		if((in_array('menu-item-has-children',$item->classes) && in_array('current-menu-ancestor',$item->classes)) || (in_array('menu-item-has-children',$item->classes) && in_array('current-menu-item',$item->classes))){
@@ -314,7 +314,7 @@ class mobile_nav_walker extends Walker_Nav_Menu {
 		}
 		
 		$output .= "<li class='" .  implode(" ", $item->classes) . "'>";
-		$output .= $args->after;		
+		$output .= $args->before;		
 		if ($args->walker->has_children) {
 			$output .= '<a href="' . $item->url . '" class="toggleItem">';
 		} else {
@@ -324,7 +324,7 @@ class mobile_nav_walker extends Walker_Nav_Menu {
 		$output .= '</a>';		
 		$output .= $args->after;
 		$parentclasses = str_replace('menu-item-has-children','submenu_parent', implode(" ", $item->classes));
-		$this->$parent_title = '<li class="' .  $parentclasses . '"><a href="' . $item->url . '">'.$item->title.'</a></li>';
+		$this->parent_title = '<li class="' .  $parentclasses . '"><a href="' . $item->url . '">'.$item->title.'</a></li>';
 	}
 	public function start_lvl( &$output, $depth = 0, $args = null ) {
 		if ( isset( $args->item_spacing ) && 'discard' === $args->item_spacing ) {
@@ -353,7 +353,7 @@ class mobile_nav_walker extends Walker_Nav_Menu {
 
 		$output .= "{$n}{$indent}<ul$class_names>{$n}";
 		$output .= $this->$parent_title;
-		$this->$parent_titlee = '';
+		$this->parent_title = '';
 	}
 }
 
