@@ -119,7 +119,6 @@ ul.menu ul {
 /*******FAQS*****/
 .faq .faq-answer{
 	display:none;
-	padding:10px;
 }
 .faq.open .faq-answer{
 	display:block;

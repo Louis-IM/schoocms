@@ -352,7 +352,7 @@ class mobile_nav_walker extends Walker_Nav_Menu {
 		$class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
 
 		$output .= "{$n}{$indent}<ul$class_names>{$n}";
-		$output .= $this->$parent_title;
+		$output .= $this->parent_title;
 		$this->parent_title = '';
 	}
 }
