@@ -52,11 +52,13 @@ add_action( 'widgets_init', 'schoocms_widgets_init' );
 	//required scripts. Do not modify
 	wp_enqueue_style( 'bootstrap-style', get_template_directory_uri() . '/css/bootstrap/bootstrap.min.css', '', '5.3.0' );
 	wp_enqueue_style( 'fontawesome', get_template_directory_uri() . '/fonts/fontawesome/css/all.min.css', '', '6.4.0');
+	wp_enqueue_style( 'aos-style', get_template_directory_uri() . '/css/aos.css', '', '2.3.4');
 	
 	wp_enqueue_script( 'bootstrap-scripts', get_template_directory_uri() . '/js/bootstrap/bootstrap.min.js', array('jquery'), '5.3.0', true );
 	wp_enqueue_script( 'cookie', get_template_directory_uri() . '/js/jquery.cookie.js', array('jquery'), '', true );
 	wp_enqueue_script( 'cycle2', get_template_directory_uri() . '/js/jquery.cycle2.min.js', array('jquery'), '2.1.6', true );
 	wp_enqueue_script( 'owl', get_template_directory_uri() . '/js/owl.carousel.min.js', array('jquery'), '2.3.4', true );
+	wp_enqueue_script( 'aos-script', get_template_directory_uri() . '/js/aos.js', array('jquery'), '2.3.4', true );
 	wp_enqueue_script( 'fancybox', 'https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js', array('jquery'), '', true );	
  }
 add_action( 'wp_enqueue_scripts', 'schoocms_required_scripts' ); 
@@ -305,21 +307,53 @@ class nav_arrow_walker extends Walker_Nav_Menu {
 class mobile_nav_walker extends Walker_Nav_Menu {
 	private $parent_title = false;
 	function start_el(&$output, $item, $depth=0, $args=[], $id=0) {
-		
+		$atts           = array();
+		$atts['title']  = ! empty( $item->attr_title ) ? $item->attr_title : '';
+		$atts['target'] = ! empty( $item->target ) ? $item->target : '';
+		if ( '_blank' === $item->target && empty( $item->xfn ) ) {
+			$atts['rel'] = 'noopener';
+		} else {
+			$atts['rel'] = $item->xfn;
+		}
+
+		if ( ! empty( $item->url ) ) {
+			if ( get_privacy_policy_url() === $item->url ) {
+				$atts['rel'] = empty( $atts['rel'] ) ? 'privacy-policy' : $atts['rel'] . ' privacy-policy';
+			}
+
+			$atts['href'] = $item->url;
+		} else {
+			$atts['href'] = '';
+		}
+		if(is_array($item->classes)){
+			if(in_array('menu-item-has-children',$item->classes)){
+				if(in_array('current-menu-ancestor',$item->classes) || in_array('current-menu-item',$item->classes)){
+					$item->classes[] = 'open';
+					$item->classes[] = 'toggleable';
+				} else {
+					$item->classes[] = 'toggleable';		
+				}
+			}			
+		} else {
+			$item->classes = array();
+		}
 		if((in_array('menu-item-has-children',$item->classes) && in_array('current-menu-ancestor',$item->classes)) || (in_array('menu-item-has-children',$item->classes) && in_array('current-menu-item',$item->classes))){
 			$item->classes[] = 'open';
 			$item->classes[] = 'toggleable';
 		} else {
 			$item->classes[] = 'toggleable';			
 		}
+		$atts       = apply_filters( 'nav_menu_link_attributes', $atts, $item, $args, $depth );
+		$attributes = $this->build_atts( $atts );
 		
 		$output .= "<li class='" .  implode(" ", $item->classes) . "'>";
 		$output .= $args->before;		
 		if ($args->walker->has_children) {
-			$output .= '<a href="' . $item->url . '" class="toggleItem">';
+			$output .=  '<a' . $attributes . ' class="toggleItem">';
+
 		} else {
-			$output .= '<a href="' . $item->url . '">';
-		}		
+			$output .=  '<a' . $attributes . '>';
+		}			
 		$output .= $args->link_before . $item->title . $args->link_after;
 		$output .= '</a>';		
 		$output .= $args->after;
@@ -336,18 +370,8 @@ class mobile_nav_walker extends Walker_Nav_Menu {
 		}
 		$indent = str_repeat( $t, $depth );
 
-		// Default class.
 		$classes = array( 'sub-menu' );
 		
-		/**
-		 * Filters the CSS class(es) applied to a menu list element.
-		 *
-		 * @since 4.8.0
-		 *
-		 * @param string[] $classes Array of the CSS classes that are applied to the menu `<ul>` element.
-		 * @param stdClass $args    An object of `wp_nav_menu()` arguments.
-		 * @param int      $depth   Depth of menu item. Used for padding.
-		 */
 		$class_names = implode( ' ', apply_filters( 'nav_menu_submenu_css_class', $classes, $args, $depth ) );
 		$class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
 
