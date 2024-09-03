@@ -31,7 +31,7 @@ function wpf_add_innermedia_tracking_script( $form_data, $form ) {
 	</script>";
      echo $return;
 }
-add_action('wpforms_frontend_output_after', 'wpf_add_innermedia_tracking_script', 10, 2 );
+//add_action('wpforms_frontend_output_after', 'wpf_add_innermedia_tracking_script', 10, 2 );
 
 function wpf_dev_field_new_default( $field ) { 
     // default scheme set to international
