@@ -67,7 +67,7 @@ button {
 a.button:hover,
 button:hover {
 	background:var(--button_bg_hover,#000);
-	color:var(--button_colour,#fff);
+	color:var(--button_colour_hover,#fff);
 	border-color:var(--button_bg_hover,#000);
 }
 button:focus {

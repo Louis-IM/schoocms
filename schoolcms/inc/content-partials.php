@@ -124,8 +124,20 @@ if(!function_exists('get_the_poi')){
 		}
 		if(!isset($thumbnailSize)){
 			$thumbnailSize = 'large-thumbnail';
-		}?>
-		<a href="<?php echo $link['url']?>" target="<?php echo $link['target'];?>" class="poi <?php echo $style;?>" <?php if($args['lightbox']== true){ echo 'data-fancybox';}?>>
+		}
+		$poiattr = '';		
+		if($link){
+			if($args['lightbox']== true){
+				$poiattr .= 'data-fancybox';
+			}
+			$poiStart = 'a href="'.$link['url'].'" target="'.$link['target'].'" '.$poiattr;
+			$poiEnd = 'a';
+		} else {
+			$poiStart = 'div';
+			$poiEnd = 'div';
+		}
+		?>
+		<<?php echo $poiStart;?> class="poi <?php echo $style;?>">
 			<?php if($image_id){?>
 			<div class="poiImage">
 				<div class="poiImageBG">
@@ -156,7 +168,7 @@ if(!function_exists('get_the_poi')){
 				</div>
 			</div>
 			<?php }?>
-		</a>
+		</<?php echo $poiEnd;?> >
 		<?php 
 		}//print_r($args);
 	}

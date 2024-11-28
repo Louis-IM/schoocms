@@ -109,5 +109,10 @@ function socialSwitch(){
 }
 $(document).ready(socialSwitch);
 $(window).resize(socialSwitch);
-
+$('.body-text table').each(function(){
+	var wrapitem = $(this);
+	if(!wrapitem.parent().hasClass('table-responsive')){
+		wrapitem.wrap('<div class="table-responsive"></div>');
+	}
+});
 })( jQuery );
