@@ -28,12 +28,7 @@
             </div><!--/.well -->
 			<p>No results found for "<?php echo get_search_query();?>"</p>
 		<?php endif; ?>
-
-		</div>
-		
+		</div>		
 	</div>
-
-
 </div> <!-- /container -->
-
 <?php get_footer();?>
