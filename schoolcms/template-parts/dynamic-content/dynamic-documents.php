@@ -5,7 +5,7 @@ if( get_sub_field('documents')):		?>
 		if($is_sidebar){
 			$docs_col_class = 'col-12';
 		} else {
-			$docs_col_class = 'col-sm-6';
+			$docs_col_class = 'col-md-6';
 		}
 		$section_title = get_sub_field('section_title');
 	?>		

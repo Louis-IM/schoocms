@@ -140,27 +140,7 @@ add_action( 'init', 'revcon_change_post_object' );
 // SCHOOCMS ADMIN FILTERS
 // **************************************
 
-// change login image
-add_action("login_head", "my_login_head");
-function my_login_head() {
-	echo "
-	<style>
-	body.login #login h1 a {
-		background: url('".get_bloginfo('template_url')."/images/SCHooCMS-logo.jpg') no-repeat scroll center top transparent;
-		height: 85px;
-		width:100%;
-	}
-	body.login {
-		background-color:#fff;
-	}
-	</style>
-	";
-}
-
-// Change title for login screen
-add_filter('login_headertext', function(){return 'SchooCMS by Innermedia';});
-// change url for login screen
-add_filter('login_headerurl', function(){return home_url();});
+include_once('inc/login-page.php');
 
 // disable default dashboard widgets
 function remove_dashboard_widgets() {

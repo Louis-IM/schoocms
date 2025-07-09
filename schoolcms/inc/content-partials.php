@@ -58,7 +58,7 @@ if(!function_exists('standard_staff')){
 			<div class="row">
 				<?php if ( has_post_thumbnail() ) : ?>
 					<div class="standard-staff-image col-sm-auto col-3">
-						<?php the_post_thumbnail('medium-thumbnail' );?>
+						<?php the_post_thumbnail('large-thumbnail' );?>
 					</div>
 				<?php endif; ?>					
 				<div class="standard-staff-text col <?php if ( !has_post_thumbnail() ){echo 'noimg';};?>">											
