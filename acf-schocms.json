@@ -644,7 +644,9 @@
                                 "ui": 0,
                                 "return_format": "value",
                                 "ajax": 0,
-                                "placeholder": ""
+                                "placeholder": "",
+                                "create_options": 0,
+                                "save_options": 0
                             },
                             {
                                 "key": "field_64bfb19293b13",
@@ -818,7 +820,9 @@
                                 "ui": 0,
                                 "return_format": "value",
                                 "ajax": 0,
-                                "placeholder": ""
+                                "placeholder": "",
+                                "create_options": 0,
+                                "save_options": 0
                             },
                             {
                                 "key": "field_6093e9b2e77ec",
@@ -1220,7 +1224,9 @@
                                         "ajax": 0,
                                         "return_format": "value",
                                         "placeholder": "",
-                                        "parent_repeater": "field_6093e9b2e77ed"
+                                        "parent_repeater": "field_6093e9b2e77ed",
+                                        "create_options": 0,
+                                        "save_options": 0
                                     }
                                 ]
                             }
@@ -1356,7 +1362,9 @@
                                 "ui": 0,
                                 "ajax": 0,
                                 "return_format": "value",
-                                "placeholder": ""
+                                "placeholder": "",
+                                "create_options": 0,
+                                "save_options": 0
                             }
                         ],
                         "min": "",
@@ -1491,6 +1499,95 @@
                                 "step": "",
                                 "prepend": "",
                                 "append": ""
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
+                    },
+                    "layout_687e090784e6c": {
+                        "key": "layout_687e090784e6c",
+                        "name": "text_image",
+                        "label": "Text Image",
+                        "display": "block",
+                        "sub_fields": [
+                            {
+                                "key": "field_687e091184e6e",
+                                "label": "Text",
+                                "name": "text",
+                                "aria-label": "",
+                                "type": "wysiwyg",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "relevanssi_exclude": 0,
+                                "default_value": "",
+                                "allow_in_bindings": 0,
+                                "tabs": "all",
+                                "toolbar": "full",
+                                "media_upload": 1,
+                                "delay": 0
+                            },
+                            {
+                                "key": "field_687e092f84e6f",
+                                "label": "Image",
+                                "name": "image",
+                                "aria-label": "",
+                                "type": "image",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "relevanssi_exclude": 0,
+                                "return_format": "array",
+                                "library": "all",
+                                "min_width": "",
+                                "min_height": "",
+                                "min_size": "",
+                                "max_width": "",
+                                "max_height": "",
+                                "max_size": "",
+                                "mime_types": "",
+                                "allow_in_bindings": 0,
+                                "preview_size": "medium"
+                            },
+                            {
+                                "key": "field_687e09a384e70",
+                                "label": "Image Position",
+                                "name": "image_position",
+                                "aria-label": "",
+                                "type": "select",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "relevanssi_exclude": 0,
+                                "choices": {
+                                    "left": "Left",
+                                    "right": "Right"
+                                },
+                                "default_value": false,
+                                "return_format": "value",
+                                "multiple": 0,
+                                "allow_null": 0,
+                                "allow_in_bindings": 0,
+                                "ui": 0,
+                                "ajax": 0,
+                                "placeholder": "",
+                                "create_options": 0,
+                                "save_options": 0
                             }
                         ],
                         "min": "",
@@ -1632,7 +1729,9 @@
                                 "ui": 0,
                                 "ajax": 0,
                                 "return_format": "value",
-                                "placeholder": ""
+                                "placeholder": "",
+                                "create_options": 0,
+                                "save_options": 0
                             }
                         ],
                         "min": "",
@@ -2118,7 +2217,9 @@
                                         "ajax": 0,
                                         "return_format": "value",
                                         "placeholder": "",
-                                        "parent_repeater": "field_609404e82a254"
+                                        "parent_repeater": "field_609404e82a254",
+                                        "create_options": 0,
+                                        "save_options": 0
                                     }
                                 ]
                             }
@@ -2466,7 +2567,9 @@
                                 "ui": 0,
                                 "ajax": 0,
                                 "return_format": "value",
-                                "placeholder": ""
+                                "placeholder": "",
+                                "create_options": 0,
+                                "save_options": 0
                             }
                         ],
                         "min": "",
@@ -2603,7 +2706,9 @@
                                 "ui": 0,
                                 "ajax": 0,
                                 "return_format": "value",
-                                "placeholder": ""
+                                "placeholder": "",
+                                "create_options": 0,
+                                "save_options": 0
                             }
                         ],
                         "min": "",
@@ -2754,7 +2859,9 @@
                                 "ui": 0,
                                 "ajax": 0,
                                 "return_format": "value",
-                                "placeholder": ""
+                                "placeholder": "",
+                                "create_options": 0,
+                                "save_options": 0
                             },
                             {
                                 "key": "field_60951bd27d4d8",
@@ -3156,7 +3263,9 @@
                                         "ajax": 0,
                                         "return_format": "value",
                                         "placeholder": "",
-                                        "parent_repeater": "field_60951bd27d4e3"
+                                        "parent_repeater": "field_60951bd27d4e3",
+                                        "create_options": 0,
+                                        "save_options": 0
                                     }
                                 ]
                             }
@@ -3292,7 +3401,9 @@
                                 "ui": 0,
                                 "ajax": 0,
                                 "return_format": "value",
-                                "placeholder": ""
+                                "placeholder": "",
+                                "create_options": 0,
+                                "save_options": 0
                             }
                         ],
                         "min": "",
