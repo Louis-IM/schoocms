@@ -55,7 +55,7 @@ acf_add_local_field_group(array(
 			'default_value' => '',
 			'tabs' => 'all',
 			'toolbar' => 'full',
-			'media_upload' => 1,
+			'media_upload' => 0,
 			'delay' => 0,
 		),
 		array(
@@ -252,7 +252,7 @@ function hook_alert(){
 						</div>
 						<?php if ( get_field('image','custom_alert')): 
 						$img = get_field('image','custom_alert');?>
-							<div class="popupImg col-6"><?php echo wp_get_attachment_image($img['id'],'medium'); ?></div>
+							<div class="popupImg col-6"><?php echo wp_get_attachment_image($img['id'],'medium',false,array('class'=>'alertImage')); ?></div>
 						<?php endif; ?>
 					</div>
 				</div>

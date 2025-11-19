@@ -1,6 +1,6 @@
 /*
-	Theme Name: Schoolcms
-	Author: Innermedia
+Theme Name: Schoolcms
+Author: Innermedia
 Author URI: https://www.innermedia.co.uk
 Description: 
 Version: 5.1.0
@@ -19,7 +19,6 @@ Version: 5.1.0
 
 /*Content Wrapper*/
 
-/* clear */
 
 .well {
 	padding:10px 15px;
@@ -31,7 +30,7 @@ Version: 5.1.0
 	width:10px;
 	height:10px;
 	display:inline-block;
-	background:#999;
+	background:currentColor;
 	border-radius:50%;
 }
 .scms-carousel .owl-nav {
@@ -62,7 +61,6 @@ Version: 5.1.0
 }
 .breadcrumbs {
 	font-size:0.875rem;
-	color:#676767;
 	padding-bottom:1.25rem;
 	position:relative;
 	border-bottom:solid 1px #d7d9d9;
@@ -75,7 +73,6 @@ Version: 5.1.0
 	padding-right:40px;
 	padding-left:0px;
 	position:relative;
-	color:#969696;
 	overflow:hidden;
 	font-size:14px;
 }
@@ -94,7 +91,6 @@ Version: 5.1.0
     padding: 0;
     font-size: 16px;
 	position:absolute;
-	color:#969696;
 	background-repeat:no-repeat;
 	background-position:center;
 	right:5px;
@@ -103,7 +99,9 @@ Version: 5.1.0
 	height: 28px;
     outline: 0;
 }
-
+.body-text iframe{
+	max-width:100%;
+}
 
 /*news*/
 .list-item{
@@ -140,9 +138,7 @@ header.mainHeader {
 	position:relative;
 }
 .headGroup {
-	color:#969696;
 	background:#fff;
-	border-bottom:solid 1px #fff;
 	transition:300ms;
 	padding-top:15px;
 	padding-bottom:15px;
@@ -154,7 +150,7 @@ header.mainHeader {
 	left:0;
 }
 .fixedHeader .headGroup {
-	border-bottom-color:#676767;
+	
 }
 .socialDesktop {
 	justify-content: end;
@@ -199,7 +195,7 @@ header.mainHeader {
 .menu-toggle .toggleIcon span:after {
     width: 26px;
     height: 1px;
-    background-color: #ec3822;
+    background-color: var(--link_colour);
     display: block;
     transition:all 300ms;
 	position:absolute;
@@ -208,7 +204,7 @@ header.mainHeader {
 .menu-toggle:hover .toggleIcon span,
 .menu-toggle:hover .toggleIcon span:before,
 .menu-toggle:hover .toggleIcon span:after{
-    background-color: #000;
+    background-color: var(--link_colour_hover);
 }
 .menu-toggle .toggleIcon span {
 	top:50%;
@@ -243,9 +239,17 @@ body.menuopen .menu-toggle .toggleIcon span:after {
 	width: 480px;
 	max-width:100%;
 	transform:translateX(100%);
-	overflow-x: hidden;	
-	padding:20px 20px;
 	border-left:1px solid #676767;
+	display:flex;
+	flex-direction:column;
+}
+
+#navbar .menu-main-container{
+	padding:20px 20px;	
+	overflow-x: hidden;	
+}
+#navbar .navbarExtra {
+	padding:10px 20px;
 }
 body.menuopen .headGroup{ 
 	border-bottom-color:#676767;	
@@ -265,7 +269,6 @@ body.menuopen  #navbar{
 #menu-main li a{
 	display: block;
 	text-decoration:none;
-	color:#ec3822;
 	line-height:1.35;
 	position:relative;
 	border-bottom:solid 1px #676767;
@@ -367,6 +370,7 @@ body.menuopen  #navbar{
 .footerLower {
 	background:#000;
 	color:#dddedf;
+	--link_colour:#dddedf;
 	padding:20px 0;
 	font-size:14px;
 	text-align:center;
@@ -376,7 +380,6 @@ body.menuopen  #navbar{
 	margin:10px 0;
 }
 .footerLower a{
-	color:#dddedf;	
 	text-decoration:none;
 }
 .footerInfo {
@@ -440,8 +443,14 @@ body.menuopen  #navbar{
 \*------------------------------------*/
 
 .dynamicContent {
-	margin-top:00px;
-	margin-bottom:30px;
+	margin-top:30px;
+	margin-bottom:00px;
+}
+@media (min-width:992px){
+	.dynamicContent {
+		margin-top:50px;
+		margin-bottom:00px;
+	}
 }
 /*******Dividers******/
 .dividera{
@@ -847,7 +856,6 @@ a.button.document-link:after {
 	margin:5px 0;
 }
 #menu-side a {
-	color:#676767;
 	display:inline-block;
 	text-decoration:none;
 	padding:0.5rem 1rem;
@@ -864,7 +872,7 @@ a.button.document-link:after {
 #menu-side .sub-menu li.current-menu-item a{	
 }
 #menu-side .sub-menu li.current-menu-item > a{
-	color:#676767;
+	
 }
 #menu-side .sub-menu li.menu-item-has-children > .arrow {
 	display:block;

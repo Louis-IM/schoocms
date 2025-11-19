@@ -13,7 +13,7 @@ a {
 	color:var(--link_colour);
 }
 a:hover {
-	color::var(--link_colour_hover);
+	color:var(--link_colour_hover);
 	text-decoration:none;
 }
 a:focus {
@@ -109,6 +109,10 @@ tbody, td, tfoot, th, thead, tr {
     max-width: 100%;
 	padding:7.5px;
 	margin-bottom:0;
+}
+.gallery  .gallery-item img{
+	width:100%;
+	aspect-ratio:1;
 }
 .gallery.gallery-columns-2 .gallery-item {
 	-ms-flex: 0 0 50%;

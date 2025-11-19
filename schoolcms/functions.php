@@ -93,14 +93,16 @@ add_action( 'init', 'my_theme_add_editor_styles' );
 // SCHOOCMS FUNCTIONS
 // **************************************
 //No Srcset attachment image
-function wp_get_attachment_image_no_srcset($attachment_id, $size = 'thumbnail', $icon = false, $attr = '') {
-    // add a filter to return null for srcset
-    add_filter( 'wp_calculate_image_srcset_meta', '__return_null' );
-    // get the srcset-less img html
-    $html = wp_get_attachment_image($attachment_id, $size, $icon, $attr);
-    // remove the above filter
-    remove_filter( 'wp_calculate_image_srcset_meta', '__return_null' );
-    return $html;
+if (!function_exists('wp_get_attachment_image_no_srcset')) {
+	function wp_get_attachment_image_no_srcset($attachment_id, $size = 'thumbnail', $icon = false, $attr = '') {
+		// add a filter to return null for srcset
+		add_filter( 'wp_calculate_image_srcset_meta', '__return_null' );
+		// get the srcset-less img html
+		$html = wp_get_attachment_image($attachment_id, $size, $icon, $attr);
+		// remove the above filter
+		remove_filter( 'wp_calculate_image_srcset_meta', '__return_null' );
+		return $html;
+	}
 }
 
 // **************************************
@@ -264,12 +266,14 @@ add_filter( 'wp_nav_menu_objects', 'my_wp_nav_menu_objects_sub_menu', 10, 2 );
 class nav_arrow_walker extends Walker_Nav_Menu {
 	function start_el(&$output, $item, $depth=0, $args=[], $id=0) {
 		if(is_array($item->classes)){
-			if((in_array('menu-item-has-children',$item->classes) && in_array('current-menu-ancestor',$item->classes)) || (in_array('menu-item-has-children',$item->classes) && in_array('current-menu-item',$item->classes))){
-				$item->classes[] = 'open';
-				$item->classes[] = 'toggleable';
-			} else {
-				$item->classes[] = 'toggleable';		
-			}
+			if(in_array('menu-item-has-children',$item->classes)){
+				if(in_array('current-menu-ancestor',$item->classes) || in_array('current-menu-item',$item->classes)){
+					$item->classes[] = 'open';
+					$item->classes[] = 'toggleable';
+				} else {
+					$item->classes[] = 'toggleable';		
+				}
+			}			
 		} else {
 			$item->classes = array();
 		}

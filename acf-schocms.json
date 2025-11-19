@@ -90,7 +90,8 @@
         "hide_on_screen": "",
         "active": true,
         "description": "",
-        "show_in_rest": 0
+        "show_in_rest": 0,
+        "display_title": ""
     },
     {
         "key": "group_5a26b8ba60478",
@@ -252,7 +253,8 @@
         "hide_on_screen": "",
         "active": true,
         "description": "",
-        "show_in_rest": 0
+        "show_in_rest": 0,
+        "display_title": ""
     },
     {
         "key": "group_5c5d5319a5eb0",
@@ -296,7 +298,8 @@
         "hide_on_screen": "",
         "active": true,
         "description": "",
-        "show_in_rest": false
+        "show_in_rest": false,
+        "display_title": ""
     },
     {
         "key": "group_5c5d5258bf378",
@@ -391,7 +394,8 @@
         "hide_on_screen": "",
         "active": true,
         "description": "",
-        "show_in_rest": 0
+        "show_in_rest": 0,
+        "display_title": ""
     },
     {
         "key": "group_609d311abec60",
@@ -512,7 +516,8 @@
         "hide_on_screen": "",
         "active": true,
         "description": "",
-        "show_in_rest": 0
+        "show_in_rest": 0,
+        "display_title": ""
     },
     {
         "key": "group_6093e901dc2c6",
@@ -1504,7 +1509,7 @@
                         "min": "",
                         "max": ""
                     },
-					"layout_68ee23f719ee2": {
+                    "layout_68ee23f719ee2": {
                         "key": "layout_68ee23f719ee2",
                         "name": "curriculum",
                         "label": "Curriculum",
@@ -1537,7 +1542,7 @@
                                 "label": "Row count",
                                 "name": "row_count",
                                 "aria-label": "",
-                                "type": "select",
+                                "type": "number",
                                 "instructions": "",
                                 "required": 0,
                                 "conditional_logic": 0,
@@ -1547,20 +1552,14 @@
                                     "id": ""
                                 },
                                 "relevanssi_exclude": 0,
-                                "choices": {
-                                    "3": "3",
-                                    "4": "4"
-                                },
-                                "default_value": false,
-                                "return_format": "value",
-                                "multiple": 0,
-                                "allow_null": 0,
+                                "default_value": 3,
+                                "min": 1,
+                                "max": 4,
                                 "allow_in_bindings": 0,
-                                "ui": 0,
-                                "ajax": 0,
                                 "placeholder": "",
-                                "create_options": 0,
-                                "save_options": 0
+                                "step": "",
+                                "prepend": "",
+                                "append": ""
                             },
                             {
                                 "key": "field_68ee2b645f5ba",
@@ -1808,7 +1807,8 @@
         "hide_on_screen": "",
         "active": true,
         "description": "",
-        "show_in_rest": 0
+        "show_in_rest": 0,
+        "display_title": ""
     },
     {
         "key": "group_5ea15ec41cabf",
@@ -2785,7 +2785,8 @@
         "hide_on_screen": "",
         "active": true,
         "description": "",
-        "show_in_rest": 0
+        "show_in_rest": 0,
+        "display_title": ""
     },
     {
         "key": "group_595f5de6ab548",
@@ -3638,6 +3639,7 @@
         "hide_on_screen": "",
         "active": true,
         "description": "",
-        "show_in_rest": false
+        "show_in_rest": false,
+        "display_title": ""
     }
 ]

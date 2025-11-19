@@ -115,4 +115,11 @@ $('.body-text table').each(function(){
 		wrapitem.wrap('<div class="table-responsive"></div>');
 	}
 });
+AOS.init({
+offset: 100,
+delay : 400,
+});
+$(window).scroll(function(){
+	AOS.refreshHard();
+});  
 })( jQuery );
