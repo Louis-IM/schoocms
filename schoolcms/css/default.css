@@ -16,6 +16,7 @@ ul.socials {
 	vertical-align:top;
 	list-style:none;
 	margin:0;
+	padding:0;
 }
 ul.socials li{
 	display:inline-block;
@@ -25,10 +26,10 @@ ul.socials li{
 	text-align:center;
 }
 .body-container {
-	margin-top:20px;
+	
 }
 .bodyContent {
-	margin-bottom:40px;
+	
 }
 body.menuopen {
 	overflow:hidden;

@@ -88,23 +88,23 @@
 	padding-top:50%;
 }
 
-#subject-tiles .subject-block{
+.subject-tiles .subject-block{
     width: 100%;
     position: relative;
 	clear:both;
 	overflow:hidden;
     display: none;
 }
-#subject-tiles .subject-block .spacing{
+.subject-tiles .subject-block .spacing{
 	padding:0 0px 30px;
 }
-#subject-tiles .subject-block .panel{
+.subject-tiles .subject-block .panel{
 	background:#e4e4e4;	
 	position:relative;
 	margin:0 auto;
 	padding:30px;
 }
-#subject-tiles .subject-block .subject-close{
+.subject-tiles .subject-block .subject-close{
 	position: absolute;   
     height: 50px;
     width: 50px;
@@ -116,7 +116,7 @@
     z-index: 2;
 	cursor:pointer;
 }
-#subject-tiles .subject-block .subject-close:before{
+.subject-tiles .subject-block .subject-close:before{
 content: "\f00d";    
 	font-weight:900;	
     font-family: "Font Awesome 6 Free";
@@ -128,18 +128,18 @@ content: "\f00d";
 	transform:translate(-50%,-50%);
 	font-size:25px;
 }
-#subject-tiles .subjContent {
+.subject-tiles .subjContent {
 	padding-top:20px;
 }
-#subject-tiles .subject-block .photo{
+.subject-tiles .subject-block .photo{
 	position:relative;
 	max-width:540px;
 	padding-right:20px
 }
-#subject-tiles .linkGroup {
+.subject-tiles .linkGroup {
 }
 
-#subject-tiles  .subjContent p{
+.subject-tiles  .subjContent p{
 	margin-bottom:1em;
 }
 @media (min-width:576px){

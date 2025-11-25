@@ -58,7 +58,7 @@ if(!function_exists('standard_staff')){
 			<div class="row">
 				<?php if ( has_post_thumbnail() ) : ?>
 					<div class="standard-staff-image col-sm-auto col-3">
-						<?php the_post_thumbnail('thumbnail' );?>
+						<?php the_post_thumbnail('large-thumbnail' );?>
 					</div>
 				<?php endif; ?>					
 				<div class="standard-staff-text col <?php if ( !has_post_thumbnail() ){echo 'noimg';};?>">											
@@ -124,8 +124,20 @@ if(!function_exists('get_the_poi')){
 		}
 		if(!isset($thumbnailSize)){
 			$thumbnailSize = 'large-thumbnail';
-		}?>
-		<a href="<?php echo $link['url']?>" target="<?php echo $link['target'];?>" class="poi <?php echo $style;?>" <?php if($args['lightbox']== true){ echo 'data-fancybox';}?>>
+		}
+		$poiattr = '';		
+		if($link){
+			if($args['lightbox']== true){
+				$poiattr .= 'data-fancybox';
+			}
+			$poiStart = 'a href="'.$link['url'].'" target="'.$link['target'].'" '.$poiattr;
+			$poiEnd = 'a';
+		} else {
+			$poiStart = 'div';
+			$poiEnd = 'div';
+		}
+		?>
+		<<?php echo $poiStart;?> class="poi <?php echo $style;?>">
 			<?php if($image_id){?>
 			<div class="poiImage">
 				<div class="poiImageBG">
@@ -156,7 +168,7 @@ if(!function_exists('get_the_poi')){
 				</div>
 			</div>
 			<?php }?>
-		</a>
+		</<?php echo $poiEnd;?> >
 		<?php 
 		}//print_r($args);
 	}

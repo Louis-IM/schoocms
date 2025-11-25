@@ -18,7 +18,7 @@
 				while ( have_posts() ) : the_post(); ?>
 				<?php get_template_part( 'template-parts/content', 'search' );?>
 				
-			<?	endwhile;
+			<?php	endwhile;
 				the_posts_pagination();
 			else :?>
 			<h1 class="entry-title"><?php printf( __( 'Search Results for: %s', 'twentythirteen' ), get_search_query() ); ?></h1>	
@@ -28,12 +28,7 @@
             </div><!--/.well -->
 			<p>No results found for "<?php echo get_search_query();?>"</p>
 		<?php endif; ?>
-
-		</div>
-		
+		</div>		
 	</div>
-
-
 </div> <!-- /container -->
-
 <?php get_footer();?>

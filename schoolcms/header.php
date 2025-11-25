@@ -56,11 +56,8 @@
 	</div>
 		
 		<nav id="navbar" class="main-navigation" role="navigation">
-			<?php 
-				wp_nav_menu( array('theme_location'=>'main','menu_id'=>'menu-main','container_class'=>'menu-main-container','walker'=>new nav_arrow_walker()) ); 
-				
-				?>
-				<?php get_template_part('inc/social_block');?>
+			<?php wp_nav_menu( array('theme_location'=>'main','menu_id'=>'menu-main','container_class'=>'menu-main-container','walker'=>new nav_arrow_walker()) ); ?>
+			<div class="navbarExtra"><?php get_template_part('inc/social_block');?></div>
 		</nav>	
 	</header>
 

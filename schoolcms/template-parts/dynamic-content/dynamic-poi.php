@@ -7,7 +7,7 @@ if($is_sidebar){
 	$post_col = "col-12";
 } else {
 	if(count($posts) % 3 == 0) {
-		$post_col = "col-md-4 ";
+		$post_col = "col-lg-4 ";
 	} else {		
 		$post_col = "col";
 	}						

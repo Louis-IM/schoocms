@@ -5,7 +5,7 @@ if( get_sub_field('documents')):		?>
 		if($is_sidebar){
 			$docs_col_class = 'col-12';
 		} else {
-			$docs_col_class = 'col-sm-6';
+			$docs_col_class = 'col-md-6';
 		}
 		$section_title = get_sub_field('section_title');
 	?>		
@@ -14,7 +14,7 @@ if( get_sub_field('documents')):		?>
 		<div class="row  align-items-center">
 		<?php foreach( $docs as $doc ):  ?>
 			<div class="document <?php echo $docs_col_class ?>">
-				<a class="button document-link" href="<?php $docfile = get_field ('document',$doc->ID)  ; echo $docfile['url'] ?>" target="_blank">
+				<a class="button document-link" href="<?php $docfile = get_field ('document',$doc->ID); if($docfile){ echo $docfile['url']; } ?>" target="_blank">
 					<?php echo get_the_title( $doc->ID ) ; ?>
 				</a>
 			</div>			
