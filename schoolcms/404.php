@@ -1,5 +1,5 @@
 <?php get_header(); 
-get_template_part('template-parts/banner','page'); ?>		
+get_template_part('template-parts/banner'); ?>		
 <div class="container body-container">		
 	<div class="row">
 		<div class="col-lg-12 bodyContent">

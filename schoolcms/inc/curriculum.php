@@ -22,7 +22,7 @@ function get_curriculum_blocks($rowcount = 3){
 	}		
 	$count = 0;
 	if (have_rows('subjects')) {
-	echo '<div id="subject-tiles">';
+	echo '<div class="subject-tiles">';
 	echo '<div class=row>';
 		while(have_rows('subjects')) {
 			$count++;
@@ -47,7 +47,7 @@ function get_curriculum_blocks($rowcount = 3){
 			</div>
 			
 			<div class="col-12 <?php echo $subjectClass;?>">
-				<div id="subject-<?php echo $index ;?>" class="subject-block">
+				<div data-subject="subject-<?php echo $index ;?>" class="subject-block">
 					<div class="spacing">
 						<div class="panel">
 							<div class="subject-close"></div>
