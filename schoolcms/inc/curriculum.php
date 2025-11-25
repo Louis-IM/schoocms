@@ -6,6 +6,7 @@ function curriculum_scripts_styles(){
 add_action( 'wp_enqueue_scripts', 'curriculum_scripts_styles' ); 
 function get_curriculum_blocks($rowcount = 3){
 	$subjects = get_field('subjects');
+	$wrapText = get_sub_field('wrap_text_around_images');
 	//Rowcount from 1 to 4 only
 	if($rowcount == 4){
 		$blockClass = 'col-lg-3';	
@@ -51,7 +52,7 @@ function get_curriculum_blocks($rowcount = 3){
 					<div class="spacing">
 						<div class="panel">
 							<div class="subject-close"></div>
-							<div class="photo"><?php echo wp_get_attachment_image($image['id'],'large');?></div>
+							<div class="photo <?php if($wrapText):?>wrap<?php endif;?>"><?php echo wp_get_attachment_image($image['id'],'large');?></div>
 							<div class="subjContent">
 								<h2 class="title"><?php echo $title ;?></h2>
 								<div class="body"><?php echo $body ;?></div>

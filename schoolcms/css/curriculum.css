@@ -143,7 +143,14 @@ content: "\f00d";
 	margin-bottom:1em;
 }
 @media (min-width:576px){
-	
+	.subject-tiles .subject-block .photo.wrap {
+		float:left;
+	}
+	.subject-tiles .subject-block .panel:after {
+		content:'';
+		display:table;
+		clear:both;
+	}
 }
 @media (min-width:992px){
 	.subject-tile:before {
