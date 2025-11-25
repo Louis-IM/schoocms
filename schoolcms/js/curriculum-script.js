@@ -17,28 +17,6 @@ jQuery( document ).ready(function($) {
 		}
 	};
 	
-	//Subject Tiles
-	/*$('.subject-tile').click(function () {
-		var group = $(this).parents('.subject-tiles');
-		var subject = $(this).data('subject');
-		var block = $('.subject-block[data-subject=subject-'+subject+']',group);
-		console.log(block);
-		if (block.is(':visible')) {
-			$('.subject-block',group).slideUp();			
-		} else {
-			$('.subject-block',group).slideUp();
-			block.slideDown();
-		}
-		$('.subject-tile',group).not(this).removeClass('subjectOpen');
-		$(this).toggleClass('subjectOpen');
-	});
-		
-	$('.subject-close').click(function () {
-		var group = $(this).parents('.subject-tiles');
-		$('.subject-block',group).slideUp();
-		$('.subject-tile.subjectOpen',group).removeClass('subjectOpen');;
-	});	*/	
-	
 	var $root = $('html, body');
 	$('.subject-tile').click(function () {
 		var group = $(this).parents('.subject-tiles');
