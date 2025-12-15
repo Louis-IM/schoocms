@@ -31,7 +31,7 @@ function schoocms_setup() {
 
 }
 add_action( 'after_setup_theme', 'schoocms_setup' );
-
+add_theme_support( 'title-tag' ); 
 function schoocms_widgets_init() {
 	register_sidebar( array(
 		'name'          => 'News Sidebar',
